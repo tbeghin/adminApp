@@ -1,0 +1,22 @@
+{
+  "name": "admin-app",
+  "description": "Template d'administration",
+  "main": "main.ts",
+  "authors": [
+    "Thomas BEGHIN"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+    "PACE": "pace#^1.0.2"
+  }
+}

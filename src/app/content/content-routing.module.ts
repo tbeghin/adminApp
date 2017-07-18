@@ -8,7 +8,7 @@ const appRoutes: Routes = [
   {
     path: '', component: ContentComponent,
     children: [
-      {path: '', component: DashboardComponent}
+      {path: 'dashboard', component: DashboardComponent}
     ]
   }
 ];

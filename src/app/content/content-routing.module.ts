@@ -1,17 +1,20 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import {ErrorPageComponent} from './error-page/error-page.component';
-import {LoginComponent} from '../login/login.component';
+import {ContentComponent} from './content.component';
+import {DashboardComponent} from '../dashboard/dashboard.component';
 
 const appRoutes: Routes = [
-  {path: 'login', component: LoginComponent}
+  {
+    path: '', component: ContentComponent,
+    children: [
+      {path: '', component: DashboardComponent}
+    ]
+  }
 ];
 
 @NgModule({
-  declarations: [
-    ErrorPageComponent
-  ],
+  declarations: [],
   imports: [
     RouterModule.forRoot(
       appRoutes,
@@ -22,5 +25,5 @@ const appRoutes: Routes = [
     RouterModule
   ]
 })
-export class AppRoutingModule {
+export class ContentRoutingModule {
 }

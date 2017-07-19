@@ -1,5 +1,3 @@
 {
-  "directory": "src/assets/bower",
-  "proxy": "http://127.0.0.1:3128/",
-  "https-proxy":"http://127.0.0.1:3128/"
+  "directory": "src/assets/bower"
 }

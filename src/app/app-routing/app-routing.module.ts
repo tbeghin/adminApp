@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-import {ErrorPageComponent} from './error-page/error-page.component';
 import {LoginComponent} from '../login/login.component';
 
 const appRoutes: Routes = [
@@ -10,7 +9,6 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    ErrorPageComponent
   ],
   imports: [
     RouterModule.forRoot(

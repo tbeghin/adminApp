@@ -3,18 +3,23 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {ContentComponent} from './content.component';
 import {DashboardComponent} from '../dashboard/dashboard.component';
+import {ErrorPageComponent} from './error-page/error-page.component';
 
 const appRoutes: Routes = [
   {
     path: '', component: ContentComponent,
     children: [
-      {path: 'dashboard', component: DashboardComponent}
+      {path: 'dashboard', component: DashboardComponent},
+      {path: '', redirectTo: 'dashboard', pathMatch: 'full'}
     ]
-  }
+  },
+  {path: '**', component: ErrorPageComponent}
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ErrorPageComponent
+  ],
   imports: [
     RouterModule.forRoot(
       appRoutes,

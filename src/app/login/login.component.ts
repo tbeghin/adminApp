@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getUser(3)
+    this.userService.getUser("59710479c117e4301e000001")
       .then(data => this.user = data);
   }
 }

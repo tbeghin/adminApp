@@ -8,13 +8,13 @@ import {User} from '../models/user';
 @Injectable()
 export class UserService {
   // Define the routes we are going to interact with
-  private getUserUrl = 'http://localhost:3003/api/users';
+  private getUserUrl = 'http://localhost:3061/api/users';
 
   constructor(private http: Http) {
   }
 
   // Implement a method to get the public deals
-  getUser(id: number) {
+  getUser(id: string) {
     return this.http
       .get(`${this.getUserUrl}/${id}`)
       .toPromise()

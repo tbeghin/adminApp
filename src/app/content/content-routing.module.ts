@@ -5,7 +5,7 @@ import {AuthGuard} from '../guard/auth.guard';
 
 import {ContentComponent} from './content.component';
 import {DashboardComponent} from '../dashboard/dashboard.component';
-import {LoginComponent} from '../login/login.component';
+import {SigninComponent} from '../login/signin/signin.component';
 import {ErrorPageComponent} from './error-page/error-page.component';
 
 const appRoutes: Routes = [
@@ -16,7 +16,7 @@ const appRoutes: Routes = [
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'}
     ]
   },
-  {path: 'login', component: LoginComponent},
+  {path: 'login', component: SigninComponent},
   {path: '**', component: ErrorPageComponent}
 ];
 

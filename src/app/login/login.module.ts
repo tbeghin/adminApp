@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {LoginComponent} from './login.component';
-import {forEach} from "@angular/router/src/utils/collection";
+import { SignoutComponent } from './signout/signout.component';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   imports: [
@@ -10,7 +10,7 @@ import {forEach} from "@angular/router/src/utils/collection";
     ReactiveFormsModule,
     CommonModule
   ],
-  declarations: [LoginComponent]
+  declarations: [SignoutComponent, SigninComponent]
 })
 export class LoginModule {
 }

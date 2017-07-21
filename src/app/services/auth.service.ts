@@ -16,12 +16,12 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.post(this.getAuthUrl, JSON.stringify({username: username, password: password}))
+    return this.http.post(this.getAuthUrl, {username: username, password: password})
       .map(
         (response: Response) => {
           // login successful if there's a jwt token in the response
           const token = response.json() && response.json().token;
-          if (token) {
+          if (token && token !== '') {
             // set token property
             this.token = token;
 
@@ -46,6 +46,8 @@ export class AuthService {
   }
 
   loggedIn(): boolean {
-    return tokenNotExpired();
+    const isNotExpired = tokenNotExpired('currentUser');
+    console.log(isNotExpired);
+    return isNotExpired;
   }
 }

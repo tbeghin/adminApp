@@ -8,11 +8,11 @@
   <div class="login-box">
     <form class="login-form" #f="ngForm" (ngSubmit)="login(f.value)">
       <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Connexion</h3>
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{'has-error': error}">
         <label class="control-label">Nom d'utilisateur</label>
         <input class="form-control" name="username" ngModel type="text" placeholder="Utilisateur" autofocus>
       </div>
-      <div class="form-group">
+      <div class="form-group" [ngClass]="{'has-error': error}">
         <label class="control-label">Mot de passe</label>
         <input class="form-control" name="password" ngModel type="password" placeholder="Mot de passe">
       </div>
@@ -27,7 +27,8 @@
         </div>
       </div>
       <div class="form-group btn-container">
-        <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>Connexion</button>
+        <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>Connexion
+        </button>
       </div>
     </form>
     <form class="forget-form" action="index.html">

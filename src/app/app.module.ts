@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
 
+
 import {UserService} from './services/user.service';
 import {AuthService} from './services/auth.service';
 import {AuthGuard} from './guard/auth.guard'
@@ -32,5 +33,3 @@ import {AppComponent} from './app.component';
 })
 export class AppModule {
 }
-
-//http://jasonwatmore.com/post/2016/08/16/angular-2-jwt-authentication-example-tutorial

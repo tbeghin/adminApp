@@ -1,90 +1,42 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { AUTH_CONFIG } from '../models/authentication';
-import { tokenNotExpired } from 'angular2-jwt';
-
-// Avoid name not found warnings
-declare const auth0: any;
+import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map'
 
 @Injectable()
 export class AuthService {
-  // Create Auth0 web auth instance
-  // @TODO: Update AUTH_CONFIG and remove .example extension in src/app/auth/auth0-variables.ts.example
-  auth0 = new auth0.WebAuth({
-    clientID: AUTH_CONFIG.CLIENT_ID,
-    domain: AUTH_CONFIG.CLIENT_DOMAIN
-  });
+  public token: string;
 
-  // Create a stream of logged in status to communicate throughout app
-  loggedIn: boolean;
-  loggedIn$ = new BehaviorSubject<boolean>(this.loggedIn);
-
-  constructor(private router: Router) {
-    // If authenticated, set local profile property and update login status subject
-    if (this.authenticated) {
-      this.setLoggedIn(true);
-    }
+  constructor(private http: Http) {
+    // set token if saved in local storage
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.token = currentUser && currentUser.token;
   }
 
-  setLoggedIn(value: boolean) {
-    // Update login status subject
-    this.loggedIn$.next(value);
-    this.loggedIn = value;
+  login(username: string, password: string): Observable<boolean> {
+    return this.http.post('/api/authenticate', JSON.stringify({ username: username, password: password }))
+      .map((response: Response) => {
+        // login successful if there's a jwt token in the response
+        let token = response.json() && response.json().token;
+        if (token) {
+          // set token property
+          this.token = token;
+
+          // store username and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
+
+          // return true to indicate successful login
+          return true;
+        } else {
+          // return false to indicate failed login
+          return false;
+        }
+      });
   }
 
-  login() {
-    // Auth0 authorize request
-    // Note: nonce is automatically generated: https://auth0.com/docs/libraries/auth0js/v8#using-nonce
-    this.auth0.authorize({
-      responseType: 'token id_token',
-      redirectUri: AUTH_CONFIG.REDIRECT,
-      audience: AUTH_CONFIG.AUDIENCE,
-      scope: AUTH_CONFIG.SCOPE
-    });
+  logout(): void {
+    // clear token remove user from local storage to log user out
+    this.token = null;
+    localStorage.removeItem('currentUser');
   }
-
-  handleAuth() {
-    // When Auth0 hash parsed, get profile
-    this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        window.location.hash = '';
-        this._getProfile(authResult);
-        this.router.navigate(['/']);
-      } else if (err) {
-        this.router.navigate(['/']);
-        console.error(`Error: ${err.error}`);
-      }
-    });
-  }
-
-  private _getProfile(authResult) {
-    // Use access token to retrieve user's profile and set session
-    this.auth0.client.userInfo(authResult.accessToken, (err, profile) => {
-      this._setSession(authResult, profile);
-    });
-  }
-
-  private _setSession(authResult, profile) {
-    // Save session data and update login status subject
-    localStorage.setItem('token', authResult.accessToken);
-    localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('profile', JSON.stringify(profile));
-    this.setLoggedIn(true);
-  }
-
-  logout() {
-    // Remove tokens and profile and update login status subject
-    localStorage.removeItem('token');
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('profile');
-    this.router.navigate(['/']);
-    this.setLoggedIn(false);
-  }
-
-  get authenticated() {
-    // Check if there's an unexpired access token
-    return tokenNotExpired('token');
-  }
-
 }

@@ -1,0 +1,9 @@
+<li [ngClass]="{active: isActive, treeview: isTreeview}">
+  <a href="{{item.url}}"><i class="{{item.icon}}"></i>
+    <span>{{item.name}}</span>
+    <i *ngIf="item.isTreeview" class="fa fa-angle-right"></i>
+  </a>
+  <ul *ngIf="item.isTreeview" class="treeview-menu">
+    <app-item *ngFor="let child of item.children" [item]="child"></app-item>
+  </ul>
+</li>

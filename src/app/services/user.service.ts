@@ -22,6 +22,15 @@ export class UserService {
       .catch(this.handleError);
   }
 
+  // Implement a method to get the public deals
+  getAllUser() {
+    return this.http
+      .get(this.getUserUrl)
+      .toPromise()
+      .then(response => response.json() as Array<User>)
+      .catch(this.handleError);
+  }
+
   // Implement a method to handle errors if any
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);

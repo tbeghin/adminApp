@@ -16,8 +16,12 @@
     <div class="col-md-6" *ngFor="let item of treeview">
       <div class="card">
         <div class="card-title-w-btn">
-          <h3 class="title"><i class="{{item.icon}}"></i>{{item.name}}</h3>
-          <div class="btn-group"><a class="btn btn-primary" href="#"><i class="fa fa-lg fa-plus"></i></a><a class="btn btn-info" href="#"><i class="fa fa-lg fa-edit"></i></a><a class="btn btn-warning" href="#"><i class="fa fa-lg fa-trash"></i></a></div>
+          <h3 class="title"><i class="{{item.icon}}"></i> {{item.name}}</h3>
+          <div class="btn-group">
+            <a class="btn btn-primary" href="#"><i class="fa fa-lg fa-plus"></i></a>
+            <a class="btn btn-info" href="#"><i class="fa fa-lg fa-edit"></i></a>
+            <a class="btn btn-warning" href="#"><i class="fa fa-lg fa-trash"></i></a>
+          </div>
         </div>
         <div class="card-body">
           <b>{{item.url}}</b><br>

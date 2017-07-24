@@ -5,6 +5,7 @@ import {HttpModule} from '@angular/http';
 
 import {UserService} from './services/user.service';
 import {AuthService} from './services/auth.service';
+import {TreeviewService} from './services/treeview.service';
 import {AuthGuard} from './guard/auth.guard';
 
 import {AppRoutingModule} from './app-routing/app-routing.module';
@@ -31,6 +32,7 @@ import {AppComponent} from './app.component';
   providers: [
     AuthService,
     UserService,
+    TreeviewService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

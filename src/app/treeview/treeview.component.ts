@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TreeviewService} from '../services/treeview.service';
+
+import {Treeview} from '../models/treeview';
 
 
 @Component({
@@ -8,12 +10,20 @@ import {TreeviewService} from '../services/treeview.service';
   styleUrls: ['./treeview.component.css']
 })
 export class TreeviewComponent implements OnInit {
-  treeview;
+  treeview: Array<Treeview>;
 
-  constructor(private treeviewservice: TreeviewService) { }
-
-  ngOnInit() {
-    this.treeviewservice.getTreeview().then(treeview => this.treeview = treeview)
+  constructor(private treeviewservice: TreeviewService) {
   }
 
+  ngOnInit() {
+    this.treeviewservice.getTreeview().then(treeview => this.treeview = treeview);
+  }
+
+  editItem(id: string) {
+    this.treeview.map(item => {
+      if (item._id === id) {
+        item.isEditable = !item.isEditable;
+      }
+    });
+  }
 }

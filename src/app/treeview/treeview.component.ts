@@ -18,12 +18,4 @@ export class TreeviewComponent implements OnInit {
   ngOnInit() {
     this.treeviewservice.getTreeview().then(treeview => this.treeview = treeview);
   }
-
-  editItem(id: string) {
-    this.treeview.map(item => {
-      if (item._id === id) {
-        item.isEditable = !item.isEditable;
-      }
-    });
-  }
 }

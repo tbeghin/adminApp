@@ -13,39 +13,6 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6" *ngFor="let item of treeview">
-      <div class="card">
-        <div class="card-title-w-btn">
-          <h3 class="title"><i class="{{item.icon}}"></i> {{item.name}}</h3>
-          <div class="btn-group">
-            <a class="btn btn-primary" *ngIf="!item.isEditable"><i class="fa fa-lg fa-plus"></i></a>
-            <a class="btn btn-info" *ngIf="!item.isEditable" (click)="editItem(item._id)"><i class="fa fa-lg fa-edit"></i></a>
-            <a class="btn btn-warning" *ngIf="!item.isEditable"><i class="fa fa-lg fa-trash"></i></a>
-            <a class="btn btn-primary" *ngIf="item.isEditable" (click)="editItem(item._id)"><i class="fa fa-lg fa-check"></i></a>
-            <a class="btn btn-danger" *ngIf="item.isEditable" (click)="editItem(item._id)"><i class="fa fa-lg fa-ban"></i></a>
-          </div>
-        </div>
-        <div class="card-body">
-          <form class="form-horizontal">
-            <fieldset>
-              <div class="form-group">
-                <div class="col-lg-2 control-label"  *ngIf="!item.isEditable">Url : {{item.url}}</div>
-                <label class="col-lg-2 control-label" for="inputUrl" *ngIf="item.isEditable">Url</label>
-                <div class="col-lg-10">
-                  <input class="form-control" name="url" *ngIf="item.isEditable" [(ngModel)]="item.url" id="inputUrl" type="text" placeholder="Url">
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="col-lg-2 control-label"  *ngIf="!item.isEditable">Description : {{item.description}}</div>
-                <label class="col-lg-2 control-label" for="inputDesc" *ngIf="item.isEditable">Description</label>
-                <div class="col-lg-10">
-                  <textarea rows="3" class="form-control" name="url" *ngIf="item.isEditable" [(ngModel)]="item.description" id="inputDesc" type="text" placeholder="Une petite description."></textarea>
-                </div>
-              </div>
-            </fieldset>
-          </form>
-        </div>
-      </div>
-    </div>
+    <app-treeview-item *ngFor="let item of treeview" [item]="item"></app-treeview-item>
   </div>
 </div>

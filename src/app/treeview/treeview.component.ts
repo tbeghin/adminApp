@@ -18,4 +18,8 @@ export class TreeviewComponent implements OnInit {
   ngOnInit() {
     this.treeviewservice.getTreeview().then(treeview => this.treeview = treeview);
   }
+
+  save() {
+    this.treeviewservice.saveTreeview(this.treeview);
+  }
 }

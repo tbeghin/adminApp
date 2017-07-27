@@ -6,5 +6,5 @@ export class Treeview {
   icon: string;
   isDisabled: boolean;
   parent: string;
-  isEditable: boolean;
+  grade: number;
 }

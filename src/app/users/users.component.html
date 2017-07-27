@@ -13,11 +13,6 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12" *ngFor="let user of users">
-      <div class="card">
-        <h3 class="card-title">{{user.username}} {{user.lastname}}</h3>
-        <p>{{user.job}}</p>
-      </div>
-    </div>
-</div>
+    <app-user-item class="col-md-12" *ngFor="let user of users" [user]="user"></app-user-item>
+  </div>
 

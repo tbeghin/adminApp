@@ -19,13 +19,13 @@ export class UserItemComponent implements OnInit {
   }
 
   save() {
-    if (this.password == this.confirmPassword) {
+    if (!!this.password && this.password === this.confirmPassword) {
       this.user.password = this.password;
       this.userService.addUser(this.user).then(user => this.user = user);
       this.editItem();
     }
-    this.password = "";
-    this.confirmPassword = "";
+    this.password = '';
+    this.confirmPassword = '';
   }
 
   editItem() {

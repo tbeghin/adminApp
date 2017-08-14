@@ -7,6 +7,7 @@ import {ContentComponent} from './content.component';
 import {DashboardComponent} from '../dashboard/dashboard.component';
 import {SigninComponent} from '../login/signin/signin.component';
 import {UsersComponent} from '../users/users.component';
+import {TreeviewComponent} from '../treeview/treeview.component';
 import {ErrorPageComponent} from './error-page/error-page.component';
 
 const appRoutes: Routes = [
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
     children: [
       {path: 'dashboard', component: DashboardComponent},
       {path: 'users', component: UsersComponent},
+      {path: 'treeview', component: TreeviewComponent},
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'}
     ]
   },

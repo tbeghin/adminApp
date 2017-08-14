@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {TreeviewService} from '../services/treeview.service';
+
+import {Treeview} from '../models/treeview';
+
 
 @Component({
   selector: 'app-treeview',
@@ -6,10 +10,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./treeview.component.css']
 })
 export class TreeviewComponent implements OnInit {
+  treeview: Array<Treeview>;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private treeviewservice: TreeviewService) {
   }
 
+  ngOnInit() {
+    this.treeviewservice.getTreeview().then(treeview => this.treeview = treeview);
+  }
+
+  save() {
+    this.treeviewservice.saveTreeview(this.treeview);
+  }
 }

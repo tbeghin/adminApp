@@ -13,6 +13,7 @@ import {ContentModule} from './content/content.module';
 import {LoginModule} from './login/login.module';
 import {TreeviewModule} from './treeview/treeview.module';
 import {UsersModule} from './users/users.module';
+import {OsmcModule} from './osmc/osmc.module';
 
 import {AppComponent} from './app.component';
 
@@ -26,6 +27,7 @@ import {AppComponent} from './app.component';
     BrowserModule,
     LoginModule,
     ContentModule,
+    OsmcModule,
     TreeviewModule,
     UsersModule,
     FormsModule

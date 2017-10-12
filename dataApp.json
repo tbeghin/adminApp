@@ -1,0 +1,63 @@
+{
+  "users": [
+    {
+      "_id": "123456789",
+      "username": "TestUser1",
+      "firstname": "Test",
+      "lastname": "User",
+      "job": "Développeur",
+      "password": "azerty",
+      "role": "Administrateur"
+    }
+  ],
+  "treeview": [
+    {
+      "_id" : "5975ab99b41fca42d47de68d",
+      "name" : "Dashboard",
+      "url" : "/dashboard",
+      "description": "",
+      "icon" : "fa fa-dashboard",
+      "isDisabled" : false,
+      "parent": "",
+      "grade": 0
+    },
+    {
+      "_id" : "5975ad1ab41fca42d47de68e",
+      "name" : "Paramètres",
+      "url" : "",
+      "description": "",
+      "icon" : "fa fa-cogs",
+      "isDisabled" : false,
+      "parent": "",
+      "grade": 0
+    },
+    {
+      "_id" : "5975b04e0c32e77dcf2a3419",
+      "name" : "Treeview",
+      "url" : "/treeview",
+      "description": "",
+      "icon" : "fa fa-tree",
+      "isDisabled" : false,
+      "parent" : "5975ad1ab41fca42d47de68e",
+      "grade": 0
+    },
+    {
+      "_id" : "5979d4503e23383ad1ec57bf",
+      "name" : "Gestion des utilisateurs",
+      "url" : "/users",
+      "description": "",
+      "icon" : "fa fa-user",
+      "isDisabled" : false,
+      "parent" : "5975ad1ab41fca42d47de68e",
+      "grade": 0
+    }
+  ],
+  "authenticate": [
+    {
+      "id": "123456789",
+      "username": "TestUser1",
+      "password": "azerty",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIxMjM0NTY3ODkiLCJ1c2VybmFtZSI6IlRlc3RVc2VyMSIsImZpcnN0bmFtZSI6IlRlc3QiLCJsYXN0bmFtZSI6IlVzZXIiLCJqb2IiOiJEw6l2ZWxvcHBldXIiLCJwYXNzd29yZCI6ImF6ZXJ0eSIsInJvbGUiOiJBZG1pbmlzdHJhdGV1ciJ9.f4l58SplpRs4TykF69kBmoCebSL7mBJjhlD3YFbB1NY"
+    }
+  ]
+}

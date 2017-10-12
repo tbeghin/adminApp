@@ -1,0 +1,5 @@
+{
+  "/api/authenticate": "/authenticate",
+  "/api/users": "/users",
+  "/api/treeview": "/treeview"
+}

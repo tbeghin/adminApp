@@ -12,6 +12,7 @@ import {AuthService} from '../../services/auth.service';
 export class SigninComponent implements OnInit {
   loading = false;
   error = '';
+  forgetPassword = false;
 
   constructor(private router: Router,
               private authService: AuthService) {

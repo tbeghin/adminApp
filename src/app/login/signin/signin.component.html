@@ -5,7 +5,7 @@
   <div class="logo">
     <h1>Calligramme</h1>
   </div>
-  <div class="login-box">
+  <div class="login-box" [ngClass]="{'flipped': error}">
     <form class="login-form" #f="ngForm" (ngSubmit)="login(f.value)">
       <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Connexion</h3>
       <div class="form-group" [ngClass]="{'has-error': error}">
@@ -23,7 +23,7 @@
               <input type="checkbox"><span class="label-text">Rester connecter</span>
             </label>
           </div>
-          <p class="semibold-text mb-0"><a data-toggle="flip">Mot de passe oublié ?</a></p>
+          <p class="semibold-text mb-0"><a data-toggle="flip" (click)="forgetPassword = !forgetPassword">Mot de passe oublié ?</a></p>
         </div>
       </div>
       <div class="form-group btn-container">
@@ -41,7 +41,7 @@
         <button class="btn btn-primary btn-block"><i class="fa fa-unlock fa-lg fa-fw"></i>Réinitialisé</button>
       </div>
       <div class="form-group mt-20">
-        <p class="semibold-text mb-0"><a data-toggle="flip"><i class="fa fa-angle-left fa-fw"></i>Retour</a></p>
+        <p class="semibold-text mb-0"><a data-toggle="flip" (click)="forgetPassword = !forgetPassword"><i class="fa fa-angle-left fa-fw"></i>Retour</a></p>
       </div>
     </form>
   </div>

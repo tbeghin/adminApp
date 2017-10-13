@@ -5,7 +5,7 @@
   <div class="logo">
     <h1>Calligramme</h1>
   </div>
-  <div class="login-box" [ngClass]="{'flipped': error}">
+  <div class="login-box" [ngClass]="{'flipped': forgetPassword}">
     <form class="login-form" #f="ngForm" (ngSubmit)="login(f.value)">
       <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Connexion</h3>
       <div class="form-group" [ngClass]="{'has-error': error}">

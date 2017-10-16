@@ -16,7 +16,7 @@ export class UserService {
   // Implement a method to get the public deals
   getUser(id: string) {
     return this.http
-      .get(`${this.getUserUrl}/${id}`)
+      .get(`${this.getUserUrl}?_id=${id}`)
       .toPromise()
       .then(response => response.json() as User)
       .catch(this.handleError);

@@ -22,6 +22,6 @@ export class MainSidebarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getUser(this.currentUser.id).then(user => this.user = user);
+    this.userService.getUser(this.currentUser.id).then(user => this.user = user[0]);
   }
 }

@@ -2,18 +2,14 @@
   <div class="card-title-w-btn">
     <h3 class="title">{{user.firstname}} {{user.lastname}}</h3>
     <div class="btn-group">
-      <a class="btn btn-primary" *ngIf="!isEditable"><i class="fa fa-lg fa-plus"></i></a>
-      <a class="btn btn-info" *ngIf="!isEditable" (click)="openDialog()"><i
+      <a class="btn btn-primary"><i class="fa fa-lg fa-plus"></i></a>
+      <a class="btn btn-info" (click)="openDialog()"><i
         class="fa fa-lg fa-edit"></i></a>
-      <a class="btn btn-warning" *ngIf="!isEditable"><i class="fa fa-lg fa-trash"></i></a>
-      <a class="btn btn-primary" *ngIf="isEditable" (click)="save()"><i
-        class="fa fa-lg fa-check"></i></a>
-      <a class="btn btn-danger" *ngIf="isEditable" (click)="openDialog()"><i
-        class="fa fa-lg fa-ban"></i></a>
+      <a class="btn btn-warning"><i class="fa fa-lg fa-trash"></i></a>
     </div>
   </div>
   <div class="card-body">
-    <dl *ngIf="!isEditable" class="dl-horizontal">
+    <dl class="dl-horizontal">
       <dt>Login :</dt>
       <dd>{{user.username}}</dd>
       <dt>Métier :</dt>

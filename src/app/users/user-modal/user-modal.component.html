@@ -1,56 +1,32 @@
-<form class="form-horizontal" *ngIf="isEditable">
-  <fieldset>
-    <div class="form-group">
-      <label class="col-lg-3 control-label" for="inputUsername">Login :</label>
-      <div class="col-lg-9">
-        <input class="form-control" name="username" [(ngModel)]="user.username" id="inputUsername"
-               type="text" placeholder="Login">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-lg-3 control-label" for="inputFirstName">Prénom :</label>
-      <div class="col-lg-9">
-        <input class="form-control" name="firstname" [(ngModel)]="user.firstname" id="inputFirstName"
-               type="text" placeholder="Prénom">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-lg-3 control-label" for="inputLastName">Nom :</label>
-      <div class="col-lg-9">
-        <input class="form-control" name="lasttname" [(ngModel)]="user.lastname" id="inputLastName"
-               type="text" placeholder="Nom">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-lg-3 control-label" for="inputPassword">Mot de passe :</label>
-      <div class="col-lg-9">
-        <input class="form-control" name="password" [(ngModel)]="password" id="inputPassword"
-               type="password">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-lg-3 control-label" for="inputConfirmPassword">Confirmation :</label>
-      <div class="col-lg-9">
-        <input class="form-control" name="confirmPassword" [(ngModel)]="confirmPassword" id="inputConfirmPassword"
-               type="password">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-lg-3 control-label" for="inputJob">Métier :</label>
-      <div class="col-lg-9">
-        <input class="form-control" name="job" [(ngModel)]="user.job" id="inputJob"
-               type="text" placeholder="Métier">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-lg-3 control-label" for="inputRole">Role :</label>
-      <div class="col-lg-9">
-        <select class="form-control" name="role" [(ngModel)]="user.role" id="inputRole">
-          <option value="Visiteur">Visiteur</option>
-          <option value="Membre">Membre</option>
-          <option value="Administrateur">Administrateur</option>
-        </select>
-      </div>
-    </div>
-  </fieldset>
-</form>
+<h1 mat-dialog-title>Modification d'utilisateur</h1>
+<div mat-dialog-content>
+  <form>
+    <mat-form-field>
+      <input matInput name="username" [(ngModel)]="user.username" id="inputUsername" placeholder="Login">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="firsttname" [(ngModel)]="user.firstname" id="inputFirstName" placeholder="Prénom">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="lasttname" [(ngModel)]="user.lastname" id="inputLastName" placeholder="Nom">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="password" [(ngModel)]="password" id="inputPassword" placeholder="Mot de passe">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="confirmPassword" [(ngModel)]="confirmPassword" id="inputConfirmPassword" placeholder="Confirmation du mot de passe">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="job" [(ngModel)]="user.job" id="inputJob" placeholder="Métier">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select name="role" placeholder="Role" id="inputRole" [(ngModel)]="user.role">
+        <mat-option value="Visiteur">Visiteur</mat-option>
+        <mat-option value="Membre">Membre</mat-option>
+        <mat-option value="Administrateur">Administrateur</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button [mat-dialog-close]="user" (click)="save()" tabindex="2">Enregistrer</button>
+    <button mat-button (click)="onNoClick()" tabindex="-1">Annuler</button>
+  </form>
+</div>

@@ -1,21 +1,32 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {MatDialogRef} from '@angular/material';
+import {Component, Inject} from '@angular/core';
+import {UserService} from '../../services/user.service';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-user-modal',
   templateUrl: './user-modal.component.html',
   styleUrls: ['./user-modal.component.css']
 })
-export class UserModalComponent implements OnInit {
-  @Input() user: any;
+export class UserModalComponent {
+  password;
+  confirmPassword;
 
-  constructor(public dialogRef: MatDialogRef<UserModalComponent>) {
-  }
-
-  ngOnInit() {
+  constructor(private userService: UserService,
+              public dialogRef: MatDialogRef<UserModalComponent>,
+              @Inject(MAT_DIALOG_DATA) public user: any) {
   }
 
   onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  save() {
+    if (!!this.password && this.password === this.confirmPassword) {
+      this.user.password = this.password;
+      this.userService.addUser(this.user).then(user => this.user = user);
+    }
+    this.password = '';
+    this.confirmPassword = '';
     this.dialogRef.close();
   }
 }

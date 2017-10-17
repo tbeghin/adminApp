@@ -1,5 +1,6 @@
-import { Component, Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {Component} from '@angular/core';
+import {MatDialog} from '@angular/material';
+import {TestModalExampleComponent} from './test-modal-example/test-modal-example.component';
 
 @Component({
   selector: 'app-test-modal',
@@ -10,12 +11,13 @@ export class TestModalComponent {
   animal: string;
   name: string;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) {
+  }
 
   openDialog(): void {
-    let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+    const dialogRef = this.dialog.open(TestModalExampleComponent, {
       width: '250px',
-      data: { name: this.name, animal: this.animal }
+      data: {name: this.name, animal: this.animal}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -24,19 +26,4 @@ export class TestModalComponent {
     });
   }
 
-}
-
-@Component({
-  selector: 'dialog-overview-example-dialog',
-  templateUrl: 'dialog-overview-example-dialog.html',
-})
-export class DialogOverviewExampleDialog {
-
-  constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
 }

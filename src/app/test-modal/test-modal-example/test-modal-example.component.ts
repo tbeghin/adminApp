@@ -1,10 +1,9 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Input, Inject } from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-test-modal-example',
-  templateUrl: './test-modal-example.component.html',
-  styleUrls: ['./test-modal-example.component.css']
+  templateUrl: './test-modal-example.component.html'
 })
 export class TestModalExampleComponent {
   constructor(

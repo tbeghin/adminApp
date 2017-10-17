@@ -6,7 +6,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -14,7 +13,8 @@ import {FormsModule} from '@angular/forms';
     MatDialogModule,
     FormsModule
   ],
-  declarations: [TestModalExampleComponent, TestModalComponent]
+  declarations: [TestModalExampleComponent, TestModalComponent],
+  entryComponents: [TestModalExampleComponent]
 })
 export class TestModalModule {
 }

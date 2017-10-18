@@ -40,6 +40,23 @@ export class UserService {
       .catch(this.handleError);
   }
 
+  updateUser(user: User){
+    return this.http
+      .put(`${this.getUserUrl}/${user._id}`, user)
+      .toPromise()
+      .then(response => response.json() as User)
+      .catch(this.handleError);
+  }
+
+  // Implement a method to get the public deals
+  deleteUser(id: string) {
+    return this.http
+      .delete(`${this.getUserUrl}/${id}`)
+      .toPromise()
+      .then(response => response.json() as User)
+      .catch(this.handleError);
+  }
+
   // Implement a method to handle errors if any
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);

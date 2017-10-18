@@ -26,14 +26,12 @@ export class AuthService {
             this.token = token;
 
             // store username and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('currentUser', JSON.stringify({id: response.json().id, token: token}));
+            localStorage.setItem('currentUser', JSON.stringify({id: response.json()[0].id, token: token}));
 
             // return true to indicate successful login
-            console.log("success login !!");
             return true;
           } else {
             // return false to indicate failed login
-            console.log("failed login !!");
             return false;
           }
         },

@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material';
 import {UserService} from '../../services/user.service';
+import {UserModalComponent} from '../user-modal/user-modal.component';
+import {User} from "../../models/user";
 
 @Component({
   selector: 'app-user-item',
@@ -8,27 +11,28 @@ import {UserService} from '../../services/user.service';
 })
 export class UserItemComponent implements OnInit {
   @Input() user: any;
-  password: string;
-  confirmPassword: string;
-  isEditable: boolean;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              public dialog: MatDialog) {
   }
 
   ngOnInit() {
   }
 
-  save() {
-    if (!!this.password && this.password === this.confirmPassword) {
-      this.user.password = this.password;
-      this.userService.addUser(this.user).then(user => this.user = user);
-      this.editItem();
-    }
-    this.password = '';
-    this.confirmPassword = '';
+  openDialog(): void {
+    const dialogRef = this.dialog.open(UserModalComponent, {
+      width: '500px',
+      data: this.user
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!!result) {
+        this.user = result;
+      }
+    });
   }
 
-  editItem() {
-    this.isEditable = !this.isEditable;
+  delete(){
+    this.userService.deleteUser(this.user._id).then(() => this.user = new User());
   }
 }

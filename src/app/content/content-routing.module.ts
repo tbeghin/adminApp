@@ -10,12 +10,14 @@ import {SigninComponent} from '../login/signin/signin.component';
 import {UsersComponent} from '../users/users.component';
 import {TreeviewComponent} from '../treeview/treeview.component';
 import {ErrorPageComponent} from './error-page/error-page.component';
+import {TestModuleComponent} from '../test-module/test-module.component';
 
 const appRoutes: Routes = [
   {
     path: '', component: ContentComponent, canActivate: [AuthGuard],
     children: [
       {path: 'dashboard', component: DashboardComponent},
+      {path: 'testPage', component: TestModuleComponent},
       {path: 'osmc', component: OsmcComponent},
       {path: 'users', component: UsersComponent},
       {path: 'treeview', component: TreeviewComponent},

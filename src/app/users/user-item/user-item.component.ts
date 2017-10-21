@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
+import {UserService} from '../../services/user.service';
 import {UserModalComponent} from '../user-modal/user-modal.component';
+import {User} from "../../models/user";
 
 @Component({
   selector: 'app-user-item',
@@ -10,7 +12,8 @@ import {UserModalComponent} from '../user-modal/user-modal.component';
 export class UserItemComponent implements OnInit {
   @Input() user: any;
 
-  constructor(public dialog: MatDialog) {
+  constructor(private userService: UserService,
+              public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -27,5 +30,9 @@ export class UserItemComponent implements OnInit {
         this.user = result;
       }
     });
+  }
+
+  delete(){
+    this.userService.deleteUser(this.user._id).then(() => this.user = new User());
   }
 }

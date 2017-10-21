@@ -23,7 +23,12 @@ export class UserModalComponent {
   save() {
     if (!!this.password && this.password === this.confirmPassword) {
       this.user.password = this.password;
-      this.userService.addUser(this.user).then(user => this.user = user);
+      if(this.user._id) {
+        this.userService.updateUser(this.user).then(user => this.user = user);
+      }
+      else {
+        this.userService.addUser(this.user).then(user => this.user = user);
+      }
     }
     this.password = '';
     this.confirmPassword = '';

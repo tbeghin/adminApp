@@ -16,7 +16,7 @@ export class UserService {
   // Implement a method to get the public deals
   getUser(id: string) {
     return this.http
-      .get(`${this.getUserUrl}?_id=${id}`)
+      .get(`${this.getUserUrl}/${id}`)
       .toPromise()
       .then(response => response.json() as User)
       .catch(this.handleError);
@@ -35,6 +35,23 @@ export class UserService {
   addUser(user: User) {
     return this.http
       .post(this.getUserUrl, user)
+      .toPromise()
+      .then(response => response.json() as User)
+      .catch(this.handleError);
+  }
+
+  updateUser(user: User){
+    return this.http
+      .put(`${this.getUserUrl}/${user._id}`, user)
+      .toPromise()
+      .then(response => response.json() as User)
+      .catch(this.handleError);
+  }
+
+  // Implement a method to get the public deals
+  deleteUser(id: string) {
+    return this.http
+      .delete(`${this.getUserUrl}/${id}`)
       .toPromise()
       .then(response => response.json() as User)
       .catch(this.handleError);

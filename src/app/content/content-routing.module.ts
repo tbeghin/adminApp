@@ -9,7 +9,6 @@ import {OsmcComponent} from '../osmc/osmc.component';
 import {SigninComponent} from '../login/signin/signin.component';
 import {UsersComponent} from '../users/users.component';
 import {TreeviewComponent} from '../treeview/treeview.component';
-import {TestModalComponent} from '../test-modal/test-modal.component';
 import {ErrorPageComponent} from './error-page/error-page.component';
 
 const appRoutes: Routes = [
@@ -17,7 +16,6 @@ const appRoutes: Routes = [
     path: '', component: ContentComponent, canActivate: [AuthGuard],
     children: [
       {path: 'dashboard', component: DashboardComponent},
-      {path: 'testModal', component: TestModalComponent},
       {path: 'osmc', component: OsmcComponent},
       {path: 'users', component: UsersComponent},
       {path: 'treeview', component: TreeviewComponent},

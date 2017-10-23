@@ -1,0 +1,44 @@
+.media {
+  display: block;
+  border-bottom: 1px solid #ddd;
+}
+
+.media .block:not(.text-muted) {
+  font-weight: 500;
+}
+
+.dropdown-toggle {
+  color: #FFF;
+  display: block;
+  padding: 15px;
+  line-height: 20px;
+}
+
+.dropdown-menu {
+  min-width: 230px;
+}
+
+.dropdown-menu .fa-stack {
+  text-align: center;
+}
+
+.dropdown-menu .fa-stack-1x, .dropdown-menu .fa-stack-2x {
+  width: 100%;
+}
+
+.dropdown-menu .fa-stack-2x {
+  font-size: 2em;
+}
+
+.not-head {
+  padding: 8px 20px;
+  text-align: center;
+  font-weight: 500;
+  background-color: rgba(0, 72, 147, 0.4);
+  color: #333;
+}
+
+.not-footer {
+  text-align: center;
+  background-color: #eee;
+}

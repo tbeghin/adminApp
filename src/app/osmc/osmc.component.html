@@ -1,55 +1,41 @@
-<div class="content-wrapper">
-  <div class="page-title">
-    <div>
-      <h1><i class="fa fa-video-camera"></i> OSMC</h1>
-      <p>Gestion des fichiers d'OSMC</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <h3 class="card-title">Voir le dossier</h3>
+      <div class="form-group col-md-4">
+        <select class="form-control">
+          <option *ngFor="let folder of folders">{{folder}}</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-default col-md-2">OK</button>
+      <br>
     </div>
-    <div>
-      <ul class="breadcrumb">
-        <li><i class="fa fa-home fa-lg"></i></li>
-        <li><a href="#">OSMC</a></li>
+    <div class="card">
+      <h3 class="card-title">Liste des fichiers video</h3>
+      <ul>
+        <li *ngFor="let fileName of listFile">{{fileName}}
+          <button class="btn btn-primary btn-xs" (click)="changeName(fileName)"><i class="fa fa-edit"></i></button>
+        </li>
       </ul>
+      <br>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <h3 class="card-title">Voir le dossier</h3>
-        <div class="form-group col-md-4">
-          <select class="form-control">
-            <option *ngFor="let folder of folders">{{folder}}</option>
-          </select>
-        </div>
-        <button type="button" class="btn btn-default col-md-2">OK</button>
-        <br>
-      </div>
-      <div class="card">
-        <h3 class="card-title">Liste des fichiers video</h3>
-        <ul>
-          <li *ngFor="let fileName of listFile">{{fileName}}
-            <button class="btn btn-primary btn-xs" (click)="changeName(fileName)"><i class="fa fa-edit"></i></button>
-          </li>
-        </ul>
-        <br>
-      </div>
-      <div class="card">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="well bs-component">
-              <form class="form-horizontal" #changeNameForm="ngForm" (ngSubmit)="save()">
-                <fieldset>
-                  <legend>Changement du titre du fichier</legend>
-                  <div class="form-group">
-                    <label class="col-md-4 control-label" for="inputTitle">Nouveau titre</label>
-                    <div class="col-md-6">
-                      <input class="form-control" name="changeName" [(ngModel)]="updateName.after" id="inputTitle"
-                             type="text" placeholder="Titre">
-                    </div>
-                    <button class="btn btn-success col-md-2" type="submit">Valider</button>
+    <div class="card">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="well bs-component">
+            <form class="form-horizontal" #changeNameForm="ngForm" (ngSubmit)="save()">
+              <fieldset>
+                <legend>Changement du titre du fichier</legend>
+                <div class="form-group">
+                  <label class="col-md-4 control-label" for="inputTitle">Nouveau titre</label>
+                  <div class="col-md-6">
+                    <input class="form-control" name="changeName" [(ngModel)]="updateName.after" id="inputTitle"
+                           type="text" placeholder="Titre">
                   </div>
-                </fieldset>
-              </form>
-            </div>
+                  <button class="btn btn-success col-md-2" type="submit">Valider</button>
+                </div>
+              </fieldset>
+            </form>
           </div>
         </div>
       </div>

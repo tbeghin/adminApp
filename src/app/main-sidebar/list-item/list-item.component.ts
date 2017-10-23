@@ -15,31 +15,31 @@ export class ListItemComponent implements OnInit {
   ngOnInit() {
     this.treeviewservice.getTreeview().then(
       treeview => {
-        let childrenElt = [];
-        let mainItem = [];
-        for(let item of treeview){
-          if(item.parent){
-            childrenElt.push(item)
+        const childrenElt = [];
+        const mainItem = [];
+        for (const item of treeview) {
+          if (item.parent) {
+            childrenElt.push(item);
           }
         }
-        for(let item of treeview){
-          if(!item.parent){
-            mainItem.push(item)
+        for (const item of treeview) {
+          if (!item.parent) {
+            mainItem.push(item);
           }
         }
 
-        for(let child of childrenElt){
-          for(let main of mainItem){
-            if(main._id === child.parent){
-              if (!main.children){
-                main.children = []
+        for (const child of childrenElt) {
+          for (const main of mainItem) {
+            if (main._id === child.parent) {
+              if (!main.children) {
+                main.children = [];
               }
               main.children.push(child);
             }
           }
         }
 
-        this.listItem = mainItem
+        this.listItem = mainItem;
       });
   }
 }

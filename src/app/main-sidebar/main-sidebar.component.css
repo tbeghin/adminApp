@@ -1,0 +1,23 @@
+.main-sidebar {
+  background-color: #f8f8f8;
+}
+
+.main-sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 50px;
+  min-height: 100vh;
+  width: 230px;
+  z-index: 810;
+  -webkit-box-shadow: 0 8px 17px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 17px rgba(0, 0, 0, 0.2);
+  -webkit-transition: width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  -o-transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.sidebar {
+  padding-bottom: 10px;
+  font-size: 15px;
+}

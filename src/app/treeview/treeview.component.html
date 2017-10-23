@@ -1,19 +1,4 @@
-<div class="content-wrapper">
-  <div class="page-title">
-    <div>
-      <h1><i class="fa fa-dashboard"></i>Treeview</h1>
-      <p>Visualisation de l'arbre</p>
-    </div>
-    <div>
-      <ul class="breadcrumb">
-        <li><i class="fa fa-home fa-lg"></i></li>
-        <li><a href="#">Paramètres</a></li>
-        <li><a href="#">Treeview</a></li>
-      </ul>
-    </div>
-  </div>
-  <a class="btn btn-primary" id="saveButton" (click)="save()">Sauvegarder</a>
-  <div class="row">
-    <app-treeview-item *ngFor="let item of treeview" [item]="item"></app-treeview-item>
-  </div>
+<a class="btn btn-primary" id="saveButton" (click)="save()">Sauvegarder</a>
+<div class="row">
+  <app-treeview-item *ngFor="let item of treeview" [item]="item"></app-treeview-item>
 </div>

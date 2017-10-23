@@ -1,5 +1,19 @@
 <div class="wrapper">
   <app-main-header></app-main-header>
   <app-main-sidebar></app-main-sidebar>
-  <router-outlet></router-outlet>
+  <div class="content-wrapper">
+    <div class="page-title">
+      <div>
+        <h1><i class="{{treeviewPanel.icon}}"></i> {{treeviewPanel.name}}</h1>
+        <p>{{treeviewPanel.description}}</p>
+      </div>
+      <div>
+        <ul class="breadcrumb">
+          <li><i class="fa fa-home fa-lg"></i></li>
+          <li><a href="#">{{treeviewPanel.name}}</a></li>
+        </ul>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
 </div>

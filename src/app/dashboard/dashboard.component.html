@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-3">
-  <app-information-badge></app-information-badge>
+  <div class="col-md-3" *ngFor="let badge of badgeList">
+    <app-information-badge  [data]="badge"></app-information-badge>
   </div>
 </div>

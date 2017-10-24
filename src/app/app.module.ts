@@ -15,7 +15,7 @@ import {TreeviewModule} from './treeview/treeview.module';
 import {UsersModule} from './users/users.module';
 import {OsmcModule} from './osmc/osmc.module';
 import {TestModuleModule} from './test-module/test-module.module';
-import {WidgetModule} from './widget/widget.module';
+import {WidgetModule} from './widget/widget.module'
 
 import {AppComponent} from './app.component';
 

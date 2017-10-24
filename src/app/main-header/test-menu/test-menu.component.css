@@ -5,21 +5,6 @@
   line-height: 20px;
 }
 
-.dropdown-menu {
-  min-width: 230px;
-}
-
-.dropdown-menu .fa-stack {
-  text-align: center;
-}
-
-.dropdown-menu .fa-stack-1x, .dropdown-menu .fa-stack-2x {
-  width: 100%;
-}
-
-.dropdown-menu .fa-stack-2x {
-  font-size: 2em;
-}
 
 .not-head {
   padding: 8px 20px;
@@ -32,9 +17,4 @@
 .not-footer {
   text-align: center;
   background-color: #eee;
-}
-
-.settings-menu li a {
-  font-weight: 500;
-  text-transform: uppercase;
 }

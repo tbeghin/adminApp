@@ -13601,16 +13601,6 @@ be a descendant of the grid when it is being dragged.
   left: 0;
 }
 
-.fixed .content-wrapper {
-  margin-top: 1px;
-}
-
-@media (max-width: 767px) {
-  .fixed .content-wrapper {
-    margin-top: 100px;
-  }
-}
-
 .content-wrapper {
   height: 100%;
   background-color: #E5E5E5;

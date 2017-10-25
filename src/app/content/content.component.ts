@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {TreeviewService} from '../services/treeview.service';
 import {Treeview} from '../models/treeview';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-content',
@@ -8,19 +10,17 @@ import {Treeview} from '../models/treeview';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-  treeviewPanel: Treeview;
+  treeviewPanel: Treeview = new Treeview;
 
-  constructor(private treeviewService: TreeviewService) {
-    this.treeviewService.getTreeview();
-    this.treeviewPanel = {
-      _id: '1234',
-      name: 'Dashboard',
-      url: '/dashboard',
-      icon: 'fa fa-dashboard',
-      description: 'La description',
-      grade: 0,
-      isDisabled: false
-    };
+  constructor(private route: Router, private treeviewService: TreeviewService) {
+    this.treeviewService.getTreeview().then(
+      treeviews => {
+        this.treeviewPanel = _.find(
+          treeviews,
+          treeview => treeview.url == this.route.url
+        );
+      }
+    );
   }
 
   ngOnInit() {

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {TreeviewService} from '../services/treeview.service';
 import {Treeview} from '../models/treeview';
-import * as _ from 'underscore';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-content',

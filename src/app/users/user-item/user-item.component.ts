@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {UserService} from '../../services/user.service';
 import {UserModalComponent} from '../user-modal/user-modal.component';
-import {User} from "../../models/user";
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-user-item',
@@ -10,7 +10,7 @@ import {User} from "../../models/user";
   styleUrls: ['./user-item.component.css']
 })
 export class UserItemComponent implements OnInit {
-  @Input() user: any;
+  @Input() user: User;
 
   constructor(private userService: UserService,
               public dialog: MatDialog) {
@@ -32,7 +32,7 @@ export class UserItemComponent implements OnInit {
     });
   }
 
-  delete(){
+  delete() {
     this.userService.deleteUser(this.user._id).then(() => this.user = new User());
   }
 }

@@ -11,10 +11,12 @@
       <input matInput name="lasttname" [(ngModel)]="user.lastname" id="inputLastName" placeholder="Nom">
     </mat-form-field>
     <mat-form-field>
-      <input matInput name="password" [(ngModel)]="password" id="inputPassword" placeholder="Mot de passe">
+      <input matInput name="password" type="password" [(ngModel)]="password" id="inputPassword"
+             placeholder="Mot de passe">
     </mat-form-field>
     <mat-form-field>
-      <input matInput name="confirmPassword" [(ngModel)]="confirmPassword" id="inputConfirmPassword" placeholder="Confirmation du mot de passe">
+      <input matInput name="confirmPassword" type="password" [(ngModel)]="confirmPassword" id="inputConfirmPassword"
+             placeholder="Confirmation du mot de passe">
     </mat-form-field>
     <mat-form-field>
       <input matInput name="job" [(ngModel)]="user.job" id="inputJob" placeholder="Métier">

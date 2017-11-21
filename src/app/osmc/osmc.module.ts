@@ -4,11 +4,13 @@ import {FormsModule} from '@angular/forms';
 import {OsmcComponent} from './osmc.component';
 import {OsmcService} from './osmc.service';
 import {ChangeNameComponent} from './osmc-modal/change-name/change-name.component';
+import {MaterialModule} from '../material/material.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    MaterialModule
   ],
   providers: [OsmcService],
   declarations: [OsmcComponent, ChangeNameComponent]

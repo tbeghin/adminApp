@@ -2,12 +2,30 @@
   "users": [
     {
       "_id": "123456789",
-      "username": "TestUser1",
-      "firstname": "Test",
-      "lastname": "User",
+      "username": "Hurracan",
+      "firstname": "Thomas",
+      "lastname": "Béghin",
       "job": "Développeur",
       "password": "azerty",
       "role": "Administrateur"
+    },
+    {
+      "_id": "4352735863",
+      "username": "Pupuce",
+      "firstname": "Charlotte",
+      "lastname": "Béghin",
+      "job": "Professeur des écoles",
+      "password": "azerty",
+      "role": "Membre"
+    },
+    {
+      "username": "Fanfan",
+      "firstname": "Fantine",
+      "lastname": "Béghin",
+      "job": "Elève",
+      "role": "Membre",
+      "password": "azerty",
+      "_id": "BJaLIaggf"
     }
   ],
   "treeview": [
@@ -78,58 +96,6 @@
       "username": "TestUser1",
       "password": "azerty",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIxMjM0NTY3ODkiLCJ1c2VybmFtZSI6IlRlc3RVc2VyMSIsImZpcnN0bmFtZSI6IlRlc3QiLCJsYXN0bmFtZSI6IlVzZXIiLCJqb2IiOiJEw6l2ZWxvcHBldXIiLCJwYXNzd29yZCI6ImF6ZXJ0eSIsInJvbGUiOiJBZG1pbmlzdHJhdGV1ciJ9.f4l58SplpRs4TykF69kBmoCebSL7mBJjhlD3YFbB1NY"
-    }
-  ],
-  "osmcFiles": [
-    {
-      "_id": "456789321",
-      "name": "Photos",
-      "isFolder": true
-    },
-    {
-      "_id": "147258396",
-      "name": "Videos",
-      "isFolder": true
-    },
-    {
-      "_id": "7531598426",
-      "name": "Documents",
-      "isFolder": true
-    },
-    {
-      "_id": "963258741",
-      "name": "Autres",
-      "isFolder": true
-    },
-    {
-      "_id": "7531598624",
-      "name": "testFichier1.txt",
-      "isFolder": false
-    },
-    {
-      "_id": "7531598624",
-      "name": "testFichier2.txt",
-      "isFolder": false
-    },
-    {
-      "_id": "7531598624",
-      "name": "testFichier3.txt",
-      "isFolder": false
-    },
-    {
-      "_id": "7531598624",
-      "name": "testFichier4.txt",
-      "isFolder": false
-    },
-    {
-      "_id": "7531598624",
-      "name": "testFichier5.txt",
-      "isFolder": false
-    },
-    {
-      "_id": "7531598624",
-      "name": "testFichier6.txt",
-      "isFolder": false
     }
   ]
 }

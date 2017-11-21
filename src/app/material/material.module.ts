@@ -7,7 +7,8 @@ import {
   MatDialogModule,
   MatInputModule,
   MatSelectModule,
-  MatButtonModule
+  MatButtonModule,
+  MatMenuModule
 } from '@angular/material';
 
 @NgModule({
@@ -19,7 +20,8 @@ import {
     MatDialogModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule
   ],
   exports: [
     MatTabsModule,
@@ -29,7 +31,8 @@ import {
     MatDialogModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule
   ]
 })
 export class MaterialModule {

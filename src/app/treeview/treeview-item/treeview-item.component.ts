@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import {MatDialog} from '@angular/material';
+import {TreeviewService} from '../../services/treeview.service';
+import {TreeviewModalComponent} from '../treeview-modal/treeview-modal.component';
+import {Treeview} from '../../models/treeview';
 
 @Component({
   selector: 'app-treeview-item',
@@ -7,34 +10,29 @@ import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./treeview-item.component.css']
 })
 export class TreeviewItemComponent implements OnInit {
-  @Input() item: any;
-  isEditable: boolean;
-  url: FormControl;
-  description: FormControl;
-  grade: FormControl;
-  itemForm: FormGroup;
+  @Input() item: Treeview;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private treeviewService: TreeviewService,
+              public dialog: MatDialog) {
   }
 
   ngOnInit() {
-    this.url = new FormControl('', []);
-    this.description = new FormControl('', []);
-    this.grade = new FormControl('', []);
-    this.itemForm = this.formBuilder.group({
-      url: this.url,
-      description: this.description,
-      grade: this.grade
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(TreeviewModalComponent, {
+      width: '500px',
+      data: this.item
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!!result) {
+        this.item = result;
+      }
     });
   }
 
-  memorize(form: any) {
-    console.log(form.value);
-    console.log(form.errors);
-    this.editItem();
-  }
-
-  editItem() {
-    this.isEditable = !this.isEditable;
+  delete() {
+    this.treeviewService.deleteTreeview(this.item._id).then(() => this.item = new Treeview());
   }
 }

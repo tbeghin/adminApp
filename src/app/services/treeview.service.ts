@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Headers, Http, Response} from '@angular/http';
+import {Http} from '@angular/http';
+import {Treeview} from '../models/treeview';
 
 @Injectable()
 export class TreeviewService {
@@ -12,7 +13,7 @@ export class TreeviewService {
     return this.http
       .get(this.getUserUrl)
       .toPromise()
-      .then(response => response.json())
+      .then(response => response.json() as Treeview)
       .catch(this.handleError);
   }
 
@@ -20,7 +21,24 @@ export class TreeviewService {
     return this.http
       .post(this.getUserUrl, treeview)
       .toPromise()
-      .then(response => response.json())
+      .then(response => response.json() as Treeview)
+      .catch(this.handleError);
+  }
+
+  updateTreeview(treeview: Treeview) {
+    return this.http
+      .put(`${this.getUserUrl}/${treeview._id}`, treeview)
+      .toPromise()
+      .then(response => response.json() as Treeview)
+      .catch(this.handleError);
+  }
+
+  // Implement a method to get the public deals
+  deleteTreeview(id: string) {
+    return this.http
+      .delete(`${this.getUserUrl}/${id}`)
+      .toPromise()
+      .then(response => response.json() as Treeview)
       .catch(this.handleError);
   }
 

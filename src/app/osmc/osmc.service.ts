@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Headers, Http, Response} from '@angular/http';
+import {OsmcFile} from '../models/osmcFile';
 
 @Injectable()
 export class OsmcService {
-  private getOsmcUrl = 'http://localhost:3062/api/osmcFiles';
+  private getOsmcUrl = 'http://localhost:3061/api/osmcFiles';
 
   constructor(private http: Http) {
   }
@@ -12,7 +13,7 @@ export class OsmcService {
     return this.http
       .get(this.getOsmcUrl)
       .toPromise()
-      .then(response => response.json())
+      .then(response => response.json() as OsmcFile)
       .catch(this.handleError);
   }
 

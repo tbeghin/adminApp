@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {OsmcService} from './osmc.service';
+import {OsmcFile} from '../models/osmcFile';
 
 @Component({
   selector: 'app-osmc',
@@ -7,9 +8,8 @@ import {OsmcService} from './osmc.service';
   styleUrls: ['./osmc.component.css']
 })
 export class OsmcComponent implements OnInit {
-  listFile: Array<any>;
-  folders: Array<any>;
-  notes: Array<any>;
+  folders: Array<OsmcFile>;
+  files: Array<OsmcFile>;
   updateName: any;
 
   constructor(private osmcService: OsmcService) {
@@ -25,33 +25,9 @@ export class OsmcComponent implements OnInit {
 
   getAllNames() {
     this.osmcService.getOsmcFile().then(data => {
-      this.listFile = data.file;
+      this.folders = data.filter(file => file.isFolder);
+      this.files = data.filter(file => !file.isFolder);
     });
-
-    this.folders = [
-      {
-        name: 'Photos',
-        updated: new Date('1/1/16'),
-      },
-      {
-        name: 'Recipes',
-        updated: new Date('1/17/16'),
-      },
-      {
-        name: 'Work',
-        updated: new Date('1/28/16'),
-      }
-    ];
-    this.notes = [
-      {
-        name: 'Vacation Itinerary',
-        updated: new Date('2/20/16'),
-      },
-      {
-        name: 'Kitchen Remodel',
-        updated: new Date('1/18/16'),
-      }
-    ];
   }
 
   changeName(fileName) {

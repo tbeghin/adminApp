@@ -3,19 +3,15 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {OsmcComponent} from './osmc.component';
 import {OsmcService} from './osmc.service';
-import {MatTabsModule, MatCardModule, MatListModule, MatIconModule} from '@angular/material';
+import {ChangeNameComponent} from './osmc-modal/change-name/change-name.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    MatTabsModule,
-    MatCardModule,
-    MatListModule,
-    MatIconModule
+    FormsModule
   ],
   providers: [OsmcService],
-  declarations: [OsmcComponent]
+  declarations: [OsmcComponent, ChangeNameComponent]
 })
 export class OsmcModule {
 }

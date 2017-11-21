@@ -3,18 +3,16 @@
     <mat-tab label="Télécharger">
       <h1>Renommer</h1>
       <mat-list>
-        <h3 mat-subheader>Folders</h3>
+        <h3 mat-subheader>Dossiers</h3>
         <mat-list-item *ngFor="let folder of folders">
           <mat-icon mat-list-icon>folder</mat-icon>
-          <h4 mat-line>{{folder.name}}</h4>
-          <p mat-line> {{folder.updated | date}} </p>
+          <div mat-line>{{folder.name}}</div>
         </mat-list-item>
         <mat-divider></mat-divider>
-        <h3 mat-subheader>Notes</h3>
-        <mat-list-item *ngFor="let note of notes">
-          <mat-icon mat-list-icon>note</mat-icon>
-          <h4 mat-line>{{note.name}}</h4>
-          <p mat-line> {{note.updated | date}} </p>
+        <h3 mat-subheader>Video</h3>
+        <mat-list-item *ngFor="let file of files">
+          <mat-icon mat-list-icon>movie</mat-icon>
+          <div mat-line>{{file.name}}</div>
         </mat-list-item>
       </mat-list>
     </mat-tab>

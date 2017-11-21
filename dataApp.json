@@ -79,5 +79,57 @@
       "password": "azerty",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIxMjM0NTY3ODkiLCJ1c2VybmFtZSI6IlRlc3RVc2VyMSIsImZpcnN0bmFtZSI6IlRlc3QiLCJsYXN0bmFtZSI6IlVzZXIiLCJqb2IiOiJEw6l2ZWxvcHBldXIiLCJwYXNzd29yZCI6ImF6ZXJ0eSIsInJvbGUiOiJBZG1pbmlzdHJhdGV1ciJ9.f4l58SplpRs4TykF69kBmoCebSL7mBJjhlD3YFbB1NY"
     }
+  ],
+  "osmcFiles": [
+    {
+      "_id": "456789321",
+      "name": "Photos",
+      "isFolder": true
+    },
+    {
+      "_id": "147258396",
+      "name": "Videos",
+      "isFolder": true
+    },
+    {
+      "_id": "7531598426",
+      "name": "Documents",
+      "isFolder": true
+    },
+    {
+      "_id": "963258741",
+      "name": "Autres",
+      "isFolder": true
+    },
+    {
+      "_id": "7531598624",
+      "name": "testFichier1.txt",
+      "isFolder": false
+    },
+    {
+      "_id": "7531598624",
+      "name": "testFichier2.txt",
+      "isFolder": false
+    },
+    {
+      "_id": "7531598624",
+      "name": "testFichier3.txt",
+      "isFolder": false
+    },
+    {
+      "_id": "7531598624",
+      "name": "testFichier4.txt",
+      "isFolder": false
+    },
+    {
+      "_id": "7531598624",
+      "name": "testFichier5.txt",
+      "isFolder": false
+    },
+    {
+      "_id": "7531598624",
+      "name": "testFichier6.txt",
+      "isFolder": false
+    }
   ]
 }

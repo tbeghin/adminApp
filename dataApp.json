@@ -11,7 +11,7 @@
     },
     {
       "_id": "4352735863",
-      "username": "Pupuce",
+      "username": "Ma puce",
       "firstname": "Charlotte",
       "lastname": "Béghin",
       "job": "Professeur des écoles",
@@ -22,10 +22,28 @@
       "username": "Fanfan",
       "firstname": "Fantine",
       "lastname": "Béghin",
-      "job": "Elève",
+      "job": "Pilote de ligne",
       "role": "Membre",
       "password": "azerty",
       "_id": "BJaLIaggf"
+    },
+    {
+      "username": "Titi",
+      "firstname": "Thibault",
+      "lastname": "Béghin",
+      "job": "Artiste",
+      "role": "Visiteur",
+      "password": "azerty",
+      "_id": "Sy6mdd7ef"
+    },
+    {
+      "username": "Baba",
+      "firstname": "Baptiste",
+      "lastname": "Béghin",
+      "job": "Acrobate",
+      "role": "Visiteur",
+      "password": "azerty",
+      "_id": "S1VLOumlM"
     }
   ],
   "treeview": [

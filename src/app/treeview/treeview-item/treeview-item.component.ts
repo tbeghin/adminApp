@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatDialogConfig} from '@angular/material';
 import {TreeviewService} from '../../services/treeview.service';
 import {TreeviewModalComponent} from '../treeview-modal/treeview-modal.component';
 import {Treeview} from '../../models/treeview';
@@ -20,10 +20,12 @@ export class TreeviewItemComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(TreeviewModalComponent, {
+    const dialogConfig = {
       width: '500px',
       data: this.item
-    });
+    };
+
+    const dialogRef = this.dialog.open(TreeviewModalComponent, dialogConfig as MatDialogConfig);
 
     dialogRef.afterClosed().subscribe(result => {
       if (!!result) {

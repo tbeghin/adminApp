@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Modification d'utilisateur</h1>
 <div mat-dialog-content>
-  <form #UserModalForm="ngForm" (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()">
     <mat-form-field>
       <input matInput name="username" [formControl]="username" id="inputUsername" placeholder="Login">
     </mat-form-field>
@@ -12,13 +12,13 @@
     </mat-form-field>
     <mat-form-field>
       <input matInput name="password" type="password" [formControl]="password" id="inputPassword"
-             placeholder="Mot de passe">
-      <mat-error *ngIf="invalidPassword">Mot de passe incorrect !</mat-error>
+             placeholder="Mot de passe" required>
+      <mat-error *ngIf="!password.valid">Mot de passe incorrect !</mat-error>
     </mat-form-field>
     <mat-form-field>
       <input matInput name="confirmPassword" type="password" [formControl]="confirmPassword" id="inputConfirmPassword"
-             placeholder="Confirmation du mot de passe">
-      <mat-error *ngIf="invalidPassword">Mot de passe incorrect !</mat-error>
+             placeholder="Confirmation du mot de passe" required>
+      <mat-error *ngIf="!confirmPassword.valid">Mot de passe incorrect !</mat-error>
     </mat-form-field>
     <mat-form-field>
       <input matInput name="job" [formControl]="job" id="inputJob" placeholder="Métier">

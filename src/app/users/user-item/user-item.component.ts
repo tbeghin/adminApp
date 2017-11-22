@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {MatDialog} from '@angular/material';
+import {Component, Input, Output, OnInit, EventEmitter} from '@angular/core';
+import {MatDialog, MatDialogConfig} from '@angular/material';
 import {UserService} from '../../services/user.service';
 import {UserModalComponent} from '../user-modal/user-modal.component';
 import {User} from '../../models/user';
@@ -11,6 +11,7 @@ import {User} from '../../models/user';
 })
 export class UserItemComponent implements OnInit {
   @Input() user: User;
+  @Output() onDelete: EventEmitter<any> = new EventEmitter();
 
   constructor(private userService: UserService,
               public dialog: MatDialog) {
@@ -20,11 +21,12 @@ export class UserItemComponent implements OnInit {
   }
 
   openDialog(): void {
-    let newUser: User = {...this.user};
-    const dialogRef = this.dialog.open(UserModalComponent, {
+    const dialogConfig = {
       width: '500px',
-      data: newUser
-    });
+      data: this.user
+    };
+
+    const dialogRef = this.dialog.open(UserModalComponent, dialogConfig as MatDialogConfig);
 
     dialogRef.afterClosed().subscribe(result => {
       if (!!result) {
@@ -33,7 +35,7 @@ export class UserItemComponent implements OnInit {
     });
   }
 
-  delete() {
-    this.userService.deleteUser(this.user._id).then(() => this.user = new User());
+  deleteUser() {
+    this.userService.deleteUser(this.user._id).then(() => this.onDelete.emit());
   }
 }

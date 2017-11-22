@@ -33,24 +33,25 @@ export class UserModalComponent implements OnInit{
     this.confirmPassword = new FormControl('');
   }
 
+  onSubmit(): void {
+    this.save();
+  }
+
   onNoClick(): void {
     this.dialogRef.close(false);
   }
 
   save() {
-    if (!!this.password && this.password === this.confirmPassword) {
-      this.user.password = this.password;
+    if (!!this.password.value && this.password.value === this.confirmPassword.value) {
+      this.user.password = this.password.value;
       if (this.user._id) {
         this.userService.updateUser(this.user).then(user => this.user = user);
       } else {
         this.userService.addUser(this.user).then(user => this.user = user);
       }
       this.dialogRef.close(this.user);
-    } else {
-      console.log('ICI');
-      this.invalidPassword = true;
     }
-    this.password = '';
-    this.confirmPassword = '';
+    this.password.reset();
+    this.confirmPassword.reset();
   }
 }

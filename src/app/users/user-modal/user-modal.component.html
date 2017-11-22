@@ -2,33 +2,35 @@
 <div mat-dialog-content>
   <form>
     <mat-form-field>
-      <input matInput name="username" [(ngModel)]="user.username" id="inputUsername" placeholder="Login">
+      <input matInput name="username" [formControl]="username" id="inputUsername" placeholder="Login">
     </mat-form-field>
     <mat-form-field>
-      <input matInput name="firsttname" [(ngModel)]="user.firstname" id="inputFirstName" placeholder="Prénom">
+      <input matInput name="firsttname" [formControl]="firstname" id="inputFirstName" placeholder="Prénom">
     </mat-form-field>
     <mat-form-field>
-      <input matInput name="lasttname" [(ngModel)]="user.lastname" id="inputLastName" placeholder="Nom">
+      <input matInput name="lasttname" [formControl]="lastname" id="inputLastName" placeholder="Nom">
     </mat-form-field>
     <mat-form-field>
-      <input matInput name="password" type="password" [(ngModel)]="password" id="inputPassword"
+      <input matInput name="password" type="password" [formControl]="password" id="inputPassword"
              placeholder="Mot de passe">
+      <mat-error *ngIf="invalidPassword">Mot de passe incorrect !</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input matInput name="confirmPassword" type="password" [(ngModel)]="confirmPassword" id="inputConfirmPassword"
+      <input matInput name="confirmPassword" type="password" [formControl]="confirmPassword" id="inputConfirmPassword"
              placeholder="Confirmation du mot de passe">
+      <mat-error *ngIf="invalidPassword">Mot de passe incorrect !</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <input matInput name="job" [(ngModel)]="user.job" id="inputJob" placeholder="Métier">
+      <input matInput name="job" [formControl]="job" id="inputJob" placeholder="Métier">
     </mat-form-field>
     <mat-form-field>
-      <mat-select name="role" placeholder="Role" id="inputRole" [(ngModel)]="user.role">
+      <mat-select name="role" placeholder="Role" id="inputRole" [formControl]="role">
         <mat-option value="Visiteur">Visiteur</mat-option>
         <mat-option value="Membre">Membre</mat-option>
         <mat-option value="Administrateur">Administrateur</mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-button [mat-dialog-close]="user" (click)="save()" tabindex="2">Enregistrer</button>
+    <button mat-button (click)="save()" tabindex="2">Enregistrer</button>
     <button mat-button (click)="onNoClick()" tabindex="-1">Annuler</button>
   </form>
 </div>

@@ -44,3 +44,5 @@ Thumbs.db
 /src/assets/bower
 *.lock
 .bowerrc
+
+jsonServerConfig.json

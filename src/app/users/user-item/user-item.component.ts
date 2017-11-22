@@ -20,9 +20,10 @@ export class UserItemComponent implements OnInit {
   }
 
   openDialog(): void {
+    let newUser: User = {...this.user};
     const dialogRef = this.dialog.open(UserModalComponent, {
       width: '500px',
-      data: this.user
+      data: newUser
     });
 
     dialogRef.afterClosed().subscribe(result => {

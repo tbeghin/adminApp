@@ -8,6 +8,7 @@ import {DashboardComponent} from '../dashboard/dashboard.component';
 import {OsmcComponent} from '../osmc/osmc.component';
 import {SigninComponent} from '../login/signin/signin.component';
 import {UsersComponent} from '../users/users.component';
+import {UserProfilComponent} from '../user-profil/user-profil.component';
 import {TreeviewComponent} from '../treeview/treeview.component';
 import {ErrorPageComponent} from './error-page/error-page.component';
 import {TestModuleComponent} from '../test-module/test-module.component';
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
       {path: 'testPage', component: TestModuleComponent},
       {path: 'osmc', component: OsmcComponent},
       {path: 'users', component: UsersComponent},
+      {path: 'profil', component: UserProfilComponent},
       {path: 'treeview', component: TreeviewComponent},
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'}
     ]

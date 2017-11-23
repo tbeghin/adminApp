@@ -16,10 +16,18 @@ export class TreeviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.treeviewservice.getTreeview().then(treeview => this.treeview = treeview);
+    this.treeviewservice.getTreeview().then(treeview => this.treeview = [...treeview, new Treeview()]);
   }
 
   save() {
     this.treeviewservice.saveTreeview(this.treeview);
+  }
+
+  onDeleteUser(index: number) {
+    this.treeview.splice(index, 1);
+  }
+
+  onCreateUser() {
+    this.treeview.push(new Treeview());
   }
 }

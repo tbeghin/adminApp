@@ -2,15 +2,16 @@
 <div mat-dialog-content>
   <form>
     <mat-form-field>
-      <input matInput name="url" [(ngModel)]="item.url" id="inputUrl" placeholder="Url">
+      <input matInput name="url" [formControl]="url" id="inputUrl" placeholder="Url">
     </mat-form-field>
     <mat-form-field>
-      <textarea matInput name="description" [(ngModel)]="item.description" id="inputDescription" placeholder="Description"></textarea>
+      <textarea matInput name="description" [formControl]="description" id="inputDescription"
+                placeholder="Description"></textarea>
     </mat-form-field>
     <mat-form-field>
-      <input type="number" matInput name="rang" [(ngModel)]="item.grade" id="inputLastName" placeholder="Rang">
+      <input matInput type="number" name="rang" [formControl]="grade" id="inputLastName" placeholder="Rang">
     </mat-form-field>
-    <button mat-button [mat-dialog-close]="user" (click)="save()" tabindex="2">Enregistrer</button>
+    <button mat-button (click)="save()" tabindex="2">Enregistrer</button>
     <button mat-button (click)="onNoClick()" tabindex="-1">Annuler</button>
   </form>
 </div>

@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from '../material/material.module';
 
 import {TreeviewComponent} from './treeview.component';
@@ -11,6 +11,7 @@ import {TreeviewModalComponent} from './treeview-modal/treeview-modal.component'
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MaterialModule
   ],
   declarations: [TreeviewComponent, TreeviewItemComponent, TreeviewModalComponent],

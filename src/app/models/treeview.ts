@@ -6,5 +6,6 @@ export class Treeview {
   icon: string;
   isDisabled: boolean;
   parent?: string;
+  children?: Array<Treeview>;
   grade: number;
 }

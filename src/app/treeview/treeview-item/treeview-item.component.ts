@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, Output, OnInit, EventEmitter} from '@angular/core';
 import {MatDialog, MatDialogConfig} from '@angular/material';
 import {TreeviewService} from '../../services/treeview.service';
 import {TreeviewModalComponent} from '../treeview-modal/treeview-modal.component';
@@ -11,6 +11,7 @@ import {Treeview} from '../../models/treeview';
 })
 export class TreeviewItemComponent implements OnInit {
   @Input() item: Treeview;
+  @Output() onDelete: EventEmitter<any> = new EventEmitter();
 
   constructor(private treeviewService: TreeviewService,
               public dialog: MatDialog) {
@@ -35,6 +36,6 @@ export class TreeviewItemComponent implements OnInit {
   }
 
   delete() {
-    this.treeviewService.deleteTreeview(this.item._id).then(() => this.item = new Treeview());
+    this.treeviewService.deleteTreeview(this.item._id).then(() => this.onDelete.emit());
   }
 }

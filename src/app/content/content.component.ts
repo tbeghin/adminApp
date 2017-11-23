@@ -10,7 +10,7 @@ import * as _ from 'lodash';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-  treeviewPanel: Treeview = new Treeview;
+  treeviewPanel: Treeview = new Treeview();
 
   constructor(private route: Router, private treeviewService: TreeviewService) {
     this.treeviewService.getTreeview().then(
@@ -19,6 +19,7 @@ export class ContentComponent implements OnInit {
           treeviews,
           treeview => treeview.url == this.route.url
         );
+        this.treeviewPanel = this.treeviewPanel || new Treeview();
       }
     );
   }

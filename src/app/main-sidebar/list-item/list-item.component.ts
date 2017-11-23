@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Treeview} from '../../models/treeview';
 import {TreeviewService} from '../../services/treeview.service';
 
 @Component({
@@ -7,7 +8,7 @@ import {TreeviewService} from '../../services/treeview.service';
   styleUrls: ['./list-item.component.css']
 })
 export class ListItemComponent implements OnInit {
-  listItem: Array<any>;
+  listItem: Array<Treeview>;
 
   constructor(private treeviewservice: TreeviewService) {
   }
@@ -15,8 +16,8 @@ export class ListItemComponent implements OnInit {
   ngOnInit() {
     this.treeviewservice.getTreeview().then(
       treeview => {
-        const childrenElt = [];
-        const mainItem = [];
+        const childrenElt: Array<Treeview> = [];
+        const mainItem: Array<Treeview> = [];
         for (const item of treeview) {
           if (item.parent) {
             childrenElt.push(item);

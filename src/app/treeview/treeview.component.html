@@ -1,1 +1,7 @@
-<app-treeview-item class="col-lg-4 col-md-6 col-sm-12" *ngFor="let item of treeview" [item]="item"></app-treeview-item>
+<app-treeview-item
+  class="col-lg-4 col-md-6 col-sm-12"
+  *ngFor="let item of treeview"
+  [item]="item"
+  (onDelete)="onDeleteTreeview(i)"
+  (onCreate)="onCreateTreeview()"
+></app-treeview-item>

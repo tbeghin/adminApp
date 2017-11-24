@@ -14,7 +14,7 @@ export class MainSidebarComponent implements OnInit {
 
   constructor(private userService: UserService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.user = {username: 'Visiteur', lastname: '', job: ''};
+    this.user = {username: 'Visiteur', lastName: '', job: ''};
     this.active = {
       isDashboard: true,
       isParameters: false

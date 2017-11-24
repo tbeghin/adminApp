@@ -3,8 +3,8 @@
     {
       "_id": "123456789",
       "username": "Hurracan",
-      "firstname": "Thomas",
-      "lastname": "Béghin",
+      "firstName": "Thomas",
+      "lastName": "Béghin",
       "job": "Développeur",
       "password": "azerty",
       "role": "Administrateur"
@@ -12,16 +12,16 @@
     {
       "_id": "4352735863",
       "username": "Ma puce",
-      "firstname": "Charlotte",
-      "lastname": "Béghin",
+      "firstName": "Charlotte",
+      "lastName": "Béghin",
       "job": "Professeur des écoles",
       "password": "azerty",
       "role": "Membre"
     },
     {
       "username": "Fanfan",
-      "firstname": "Fantine",
-      "lastname": "Béghin",
+      "firstName": "Fantine",
+      "lastName": "Béghin",
       "job": "Pilote de ligne",
       "role": "Membre",
       "password": "azerty",
@@ -29,8 +29,8 @@
     },
     {
       "username": "Titi",
-      "firstname": "Thibault",
-      "lastname": "Béghin",
+      "firstName": "Thibault",
+      "lastName": "Béghin",
       "job": "Artiste",
       "role": "Visiteur",
       "password": "azerty",
@@ -38,8 +38,8 @@
     },
     {
       "username": "Baba",
-      "firstname": "Baptiste",
-      "lastname": "Béghin",
+      "firstName": "Baptiste",
+      "lastName": "Béghin",
       "job": "Acrobate",
       "role": "Visiteur",
       "password": "azerty",

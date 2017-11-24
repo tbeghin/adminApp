@@ -3,7 +3,6 @@ import {UserService} from '../../services/user.service';
 import {FormControl, Validators} from '@angular/forms';
 import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {User} from '../../models/user';
-import {PasswordValidation} from '../../validators/password-validation';
 
 @Component({
   selector: 'app-user-modal',
@@ -12,8 +11,8 @@ import {PasswordValidation} from '../../validators/password-validation';
 })
 export class UserModalComponent implements OnInit {
   @Output() onCreate: EventEmitter<any> = new EventEmitter();
-  firstname: FormControl;
-  lastname: FormControl;
+  firstName: FormControl;
+  lastName: FormControl;
   job: FormControl;
   role: FormControl;
   username: FormControl;
@@ -26,8 +25,8 @@ export class UserModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.firstname = new FormControl(this.user.firstname);
-    this.lastname = new FormControl(this.user.lastname);
+    this.firstName = new FormControl(this.user.firstName);
+    this.lastName = new FormControl(this.user.lastName);
     this.job = new FormControl(this.user.job);
     this.role = new FormControl(this.user.role);
     this.username = new FormControl(this.user.username);
@@ -46,8 +45,8 @@ export class UserModalComponent implements OnInit {
   save() {
     if (this.password.valid && this.password.value === this.confirmPassword.value) {
       this.user.username = this.username.value;
-      this.user.firstname = this.firstname.value;
-      this.user.lastname = this.lastname.value;
+      this.user.firstName = this.firstName.value;
+      this.user.lastName = this.lastName.value;
       this.user.job = this.job.value;
       this.user.role = this.role.value;
       this.user.password = this.password.value;

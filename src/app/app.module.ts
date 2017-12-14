@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {UserService} from './services/user.service';
+import {FacebookService} from 'ngx-facebook';
 import {AuthService} from './services/auth.service';
 import {TreeviewService} from './services/treeview.service';
 import {AuthGuard} from './guard/auth.guard';
@@ -39,6 +40,7 @@ import {AppComponent} from './app.component';
     BrowserAnimationsModule
   ],
   providers: [
+    FacebookService,
     AuthService,
     UserService,
     TreeviewService,

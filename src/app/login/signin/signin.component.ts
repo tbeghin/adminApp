@@ -11,11 +11,13 @@ import {AuthService} from '../../services/auth.service';
 })
 export class SigninComponent implements OnInit {
   loading = false;
-  error = '';
   option: LoginOptions = {
     scope: 'email,public_profile',
     return_scopes: true,
     enable_profile_selector: false
+  };
+  fields: any = {
+    fields: 'id,first_name,last_name,email,picture,gender,age_range'
   };
 
   constructor(private router: Router,
@@ -30,10 +32,14 @@ export class SigninComponent implements OnInit {
 
   loginWithFacebook(): void {
     this.fb.login(this.option)
-      .then((response: LoginResponse) => {
-        console.log(response);
-        this.fb.api(`/${response.authResponse.userID}`, 'get', {}).then(response => console.log(response))
-      })
+      .then(
+        (response: LoginResponse) => {
+          localStorage.setItem('accessToken', JSON.stringify({id: response.authResponse.userID, token: response.authResponse.accessToken}));
+          this.fb.api(`/${response.authResponse.userID}`, 'get', this.fields)
+            .then(
+              response => console.log(response),
+              error => console.error(error))
+        })
       .catch((error: any) => console.error(error));
   }
 }

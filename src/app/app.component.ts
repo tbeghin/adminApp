@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {FacebookService, InitParams} from 'ngx-facebook';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  isLoad: boolean = false;
+
+  constructor(private fb: FacebookService) {
+    const params: InitParams = {
+      appId: '153260175286885',
+      xfbml: true,
+      version: 'v2.11'
+    };
+    fb.init(params).then(
+      () => {
+        this.isLoad = true;
+      }
+    );
+  }
 }

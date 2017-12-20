@@ -1,5 +1,6 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/user';
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-user-panel',
@@ -7,12 +8,15 @@ import {User} from '../../models/user';
   styleUrls: ['./user-panel.component.css']
 })
 export class UserPanelComponent implements OnInit {
-  @Input() user: User;
+  user: User = new User();
+  userId: string;
 
-  constructor() {
+  constructor(private userService: UserService) {
   }
 
   ngOnInit() {
+    this.userId = localStorage.getItem('currentUser');
+    this.userService.getUser(this.userId).then(user => this.user = user);
   }
 
 }

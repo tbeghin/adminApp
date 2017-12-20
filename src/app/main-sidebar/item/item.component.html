@@ -1,5 +1,5 @@
-<li [ngClass]="{active: isActive, treeview: isTreeview}">
-  <a href="{{item.url}}" disabled=""><i class="{{item.icon}}"></i>
+<li routerLink="{{item.url}}" routerLinkActive="active">
+  <a><i class="{{item.icon}}"></i>
     <span>{{item.name}}</span>
     <i *ngIf="item.isTreeview" class="fa fa-angle-right"></i>
   </a>

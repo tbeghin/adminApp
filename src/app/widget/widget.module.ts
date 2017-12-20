@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { InformationBadgeComponent } from './information-badge/information-badge.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {InformationBadgeComponent} from './information-badge/information-badge.component';
 
 @NgModule({
   imports: [
@@ -9,4 +9,5 @@ import { InformationBadgeComponent } from './information-badge/information-badge
   declarations: [InformationBadgeComponent],
   exports: [InformationBadgeComponent]
 })
-export class WidgetModule { }
+export class WidgetModule {
+}

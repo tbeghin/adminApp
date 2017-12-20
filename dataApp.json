@@ -44,6 +44,13 @@
       "role": "Visiteur",
       "password": "azerty",
       "_id": "S1VLOumlM"
+    },
+    {
+      "_id": "10214850921206873",
+      "email": "thomas.beghin@orange.fr",
+      "first_name": "Thomas",
+      "last_name": "Béghin",
+      "picture": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/20479552_10214050563798438_4633338102047142909_n.jpg?oh=719eefac4d0cce00609e860c79b82141&oe=5AB288A8"
     }
   ],
   "treeview": [
@@ -71,7 +78,7 @@
       "_id": "987654321",
       "name": "Gestion OSMC",
       "url": "/osmc",
-      "description": "Renommage des films et vidéo avant la prise  en compte dans OSMC",
+      "description": "Renommage des films et vidéo avant la prise en compte dans OSMC",
       "icon": "fa fa-film",
       "isDisabled": false,
       "parent": "",
@@ -80,7 +87,7 @@
     {
       "_id": "5975ad1ab41fca42d47de68e",
       "name": "Paramètres",
-      "url": "",
+      "url": null,
       "description": "",
       "icon": "fa fa-cogs",
       "isDisabled": false,

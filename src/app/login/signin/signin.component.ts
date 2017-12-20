@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-
-import {AuthService} from '../../services/auth.service';
+import {User} from '../../models/user';
+import {FacebookService, LoginResponse, LoginOptions, AuthResponse, LoginStatus} from 'ngx-facebook';
+import {UserService} from '../../services/user.service';
+import {TransverseData} from '../../models/constants/transverse-data'
 
 
 @Component({
@@ -11,34 +13,45 @@ import {AuthService} from '../../services/auth.service';
 })
 export class SigninComponent implements OnInit {
   loading = false;
-  error = '';
-  forgetPassword = false;
+  fields: any = {
+    fields: 'id,first_name,last_name,email,picture,gender,age_range'
+  };
 
   constructor(private router: Router,
-              private authService: AuthService) {
+              private userService: UserService,
+              private fb: FacebookService) {
   }
 
   ngOnInit() {
-    // reset login status
-    this.authService.logout();
   }
 
-  login(form: any) {
-    this.loading = true;
-    const username = form.username;
-    const password = form.password;
-    this.authService.login(username, password)
-      .subscribe(
-        result => {
-          if (result === true) {
-            // login successful
-            this.router.navigate(['/']);
-          } else {
-            // login failed
-            this.error = 'Indentifiant ou mot de passe incorrect';
-            this.loading = false;
-          }
-        }
-      );
+  loginWithFacebook(): void {
+    this.fb.login()
+      .then(
+        (response: LoginResponse) => {
+          console.info(response);
+
+          this.fb.getLoginStatus().then(
+            (loginStatus: LoginStatus) => {
+              console.info(loginStatus);
+            }
+          );
+          localStorage.setItem(TransverseData.accessToken, response.authResponse.accessToken);
+          localStorage.setItem(TransverseData.currentUser, response.authResponse.userID);
+          this.fb.api(`/${response.authResponse.userID}`, 'get', this.fields)
+            .then(
+              userInfo => {
+                let user = new User();
+                user._id = userInfo.id;
+                user.email = userInfo.email;
+                user.first_name = userInfo.first_name;
+                user.last_name = userInfo.last_name;
+                user.picture = userInfo.picture.data.url;
+                this.userService.updateUser(user);
+                this.router.navigate(['dashboard']);
+              },
+              error => console.error(error))
+        })
+      .catch((error: any) => console.error(error));
   }
 }

@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {UserService} from './services/user.service';
+import {FacebookService} from 'ngx-facebook';
 import {AuthService} from './services/auth.service';
 import {TreeviewService} from './services/treeview.service';
 import {AuthGuard} from './guard/auth.guard';
@@ -42,6 +43,7 @@ import {AppComponent} from './app.component';
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr' },
+    FacebookService,
     AuthService,
     UserService,
     TreeviewService,

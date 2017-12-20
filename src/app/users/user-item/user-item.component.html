@@ -1,27 +1,28 @@
 <mat-card>
   <mat-card-header>
-    <div mat-card-avatar>
+    <img *ngIf="user.picture" mat-card-avatar src="{{user.picture}}" />
+    <div *ngIf="!user.picture" mat-card-avatar>
       <mat-icon>person</mat-icon>
     </div>
-    <mat-card-title>{{user.firstName}} {{user.lastName}}</mat-card-title>
+    <mat-card-title>{{user.first_name}} {{user.last_name}}</mat-card-title>
     <mat-card-subtitle>{{user.job}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <dl class="dl-horizontal">
-      <dt>Login :</dt>
-      <dd>{{user.username}}</dd>
+      <dt>E-mail :</dt>
+      <dd>{{user.email}}</dd>
       <dt>Rôle :</dt>
       <dd>{{user.role}}</dd>
     </dl>
   </mat-card-content>
   <mat-card-actions>
-      <button mat-raised-button color="accent" *ngIf="!user.username" (click)="openDialog()">
+      <button mat-raised-button color="accent" *ngIf="!user._id" (click)="openDialog()">
         <mat-icon>person_add</mat-icon>
       </button>
-      <button mat-raised-button color="primary" *ngIf="user.username" (click)="openDialog()">
+      <button mat-raised-button color="primary" *ngIf="user._id" (click)="openDialog()">
         <mat-icon>mode_edit</mat-icon>
       </button>
-      <button mat-raised-button color="warn" *ngIf="user.username" (click)="deleteUser()">
+      <button mat-raised-button color="warn" *ngIf="user._id" (click)="deleteUser()">
         <mat-icon>delete</mat-icon>
       </button>
   </mat-card-actions>

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {OsmcService} from './osmc.service';
+import {OsmcService} from '../services/osmc.service';
 import {OsmcFile} from '../models/osmcFile';
 
 @Component({

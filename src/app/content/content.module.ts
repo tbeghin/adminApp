@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import {MainHeaderModule} from '../main-header/main-header.module';
 import {MainSidebarModule} from '../main-sidebar/main-sidebar.module';
 import {DashboardModule} from '../dashboard/dashboard.module';
+import {MaterialModule} from '../material/material.module';
 
 import {ContentComponent} from './content.component';
 import {ErrorPageComponent} from "./error-page/error-page.component";
@@ -15,7 +16,8 @@ import {ErrorPageComponent} from "./error-page/error-page.component";
     MainHeaderModule,
     MainSidebarModule,
     DashboardModule,
-    RouterModule
+    RouterModule,
+    MaterialModule
   ],
   declarations: [ContentComponent, ErrorPageComponent],
   exports: [ContentComponent]

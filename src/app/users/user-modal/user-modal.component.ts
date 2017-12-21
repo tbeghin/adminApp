@@ -25,8 +25,8 @@ export class UserModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.firstName = new FormControl(this.user.firstName);
-    this.lastName = new FormControl(this.user.lastName);
+    this.firstName = new FormControl(this.user.first_name);
+    this.lastName = new FormControl(this.user.last_name);
     this.job = new FormControl(this.user.job);
     this.role = new FormControl(this.user.role);
     this.username = new FormControl(this.user.username);
@@ -45,8 +45,8 @@ export class UserModalComponent implements OnInit {
   save() {
     if (this.password.valid && this.password.value === this.confirmPassword.value) {
       this.user.username = this.username.value;
-      this.user.firstName = this.firstName.value;
-      this.user.lastName = this.lastName.value;
+      this.user.first_name = this.firstName.value;
+      this.user.last_name = this.lastName.value;
       this.user.job = this.job.value;
       this.user.role = this.role.value;
       this.user.password = this.password.value;

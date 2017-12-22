@@ -1,9 +1,9 @@
-<li routerLink="{{item.url}}" routerLinkActive="active">
-  <a><i class="{{item.icon}}"></i>
+<h3 *ngIf="item.isTreeview">{{item.name}}</h3>
+<app-item *ngFor="let child of item.children" [item]="child"></app-item>
+
+<mat-list-item *ngIf="!item.isTreeview">
+  <a routerLink="{{item.url}}" mat-icon-button>
+    <mat-icon>{{item.icon}}</mat-icon>
     <span>{{item.name}}</span>
-    <i *ngIf="item.isTreeview" class="fa fa-angle-right"></i>
   </a>
-  <ul *ngIf="item.isTreeview" class="treeview-menu">
-    <app-item *ngFor="let child of item.children" [item]="child"></app-item>
-  </ul>
-</li>
+</mat-list-item>

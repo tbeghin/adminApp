@@ -50,7 +50,7 @@
       "name": "Dashboard",
       "url": "/dashboard",
       "description": "Vu d'ensemble",
-      "icon": "fa fa-dashboard",
+      "icon": "dashboard",
       "isDisabled": false,
       "parent": "",
       "grade": 0
@@ -60,7 +60,7 @@
       "name": "Page de test de composants",
       "url": "/testPage",
       "description": "Page permettant de tester les composants",
-      "icon": "fa fa-spinner",
+      "icon": "build",
       "isDisabled": false,
       "parent": "",
       "grade": 0
@@ -70,7 +70,7 @@
       "name": "Gestion OSMC",
       "url": "/osmc",
       "description": "Renommage des films et vidéo avant la prise  en compte dans OSMC",
-      "icon": "fa fa-film",
+      "icon": "videocam",
       "isDisabled": false,
       "parent": "",
       "grade": 0
@@ -80,7 +80,7 @@
       "name": "Paramètres",
       "url": "",
       "description": "",
-      "icon": "fa fa-cogs",
+      "icon": "settings",
       "isDisabled": false,
       "parent": "",
       "grade": 0
@@ -90,7 +90,7 @@
       "name": "Treeview",
       "url": "/treeview",
       "description": "Gestion du menu",
-      "icon": "fa fa-tree",
+      "icon": "apps",
       "isDisabled": false,
       "parent": "5975ad1ab41fca42d47de68e",
       "grade": 1
@@ -100,7 +100,7 @@
       "name": "Gestion des utilisateurs",
       "url": "/users",
       "description": "Gestion des utilisateurs",
-      "icon": "fa fa-user",
+      "icon": "group",
       "isDisabled": false,
       "parent": "5975ad1ab41fca42d47de68e",
       "grade": 1

@@ -9,6 +9,7 @@ import {MaterialModule} from '../material/material.module';
 
 import {ContentComponent} from './content.component';
 import {ErrorPageComponent} from "./error-page/error-page.component";
+import {TitlePanelComponent} from './title-panel/title-panel.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import {ErrorPageComponent} from "./error-page/error-page.component";
     RouterModule,
     MaterialModule
   ],
-  declarations: [ContentComponent, ErrorPageComponent],
+  declarations: [ContentComponent, ErrorPageComponent, TitlePanelComponent],
   exports: [ContentComponent]
 })
 export class ContentModule {

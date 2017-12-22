@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MatSidenav} from '@angular/material/sidenav';
 import {Router} from '@angular/router';
 import {TreeviewService} from '../services/treeview.service';
 import {Treeview} from '../models/treeview';
@@ -10,6 +11,7 @@ import * as _ from 'lodash';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
+  @ViewChild('sidenav') sidenav: MatSidenav;
   treeviewPanel: Treeview = new Treeview();
 
   constructor(private route: Router, private treeviewService: TreeviewService) {

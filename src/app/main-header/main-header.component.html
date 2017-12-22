@@ -1,5 +1,9 @@
 <mat-toolbar color="primary">
-  <a href="/dashboard">Calligramme</a>
+  <a (click)="sidenav.toggle()" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </a>
+  <a routerLink="" class="title-panel">Calligramme</a>
+  <span class="remaining-space"></span>
   <!-- Navbar Right Menu-->
   <app-notification></app-notification>
   <!-- User Menu-->

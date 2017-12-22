@@ -1,0 +1,6 @@
+body{
+  margin: 0;
+}
+.remaining-space {
+  flex: 1 1 auto;
+}

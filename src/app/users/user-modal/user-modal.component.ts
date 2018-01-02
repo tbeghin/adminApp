@@ -43,7 +43,7 @@ export class UserModalComponent implements OnInit {
   }
 
   save() {
-    if (this.password.valid && this.password.value === this.confirmPassword.value) {
+    if (this.password.value === this.confirmPassword.value) {
       this.user.username = this.username.value;
       this.user.first_name = this.firstName.value;
       this.user.last_name = this.lastName.value;
@@ -51,9 +51,12 @@ export class UserModalComponent implements OnInit {
       this.user.role = this.role.value;
       this.user.password = this.password.value;
       if (this.user._id) {
-        this.userService.updateUser(this.user).then(user => this.dialogRef.close(user));
+        this.userService.updateUser(this.user).subscribe(user =>{
+          this.userService.loadActualUser();
+          this.dialogRef.close(user);
+        });
       } else {
-        this.userService.addUser(this.user).then(user => {
+        this.userService.addUser(this.user).subscribe(user => {
           this.dialogRef.close(user);
           this.onCreate.emit();
         });

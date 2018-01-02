@@ -16,6 +16,8 @@ export class UserMenuComponent implements OnInit {
   }
 
   logout(): void {
+    let accessToken = localStorage.getItem(TransverseData.accessToken);
+    console.log(this.fb.getAuthResponse());
     this.fb.getLoginStatus().then(
       (loginStatus: LoginStatus) => {
         console.info(loginStatus);

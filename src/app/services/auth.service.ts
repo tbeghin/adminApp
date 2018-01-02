@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Headers, Response} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 import {tokenNotExpired} from 'angular2-jwt';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -9,7 +9,7 @@ export class AuthService {
   public token: string;
   private getAuthUrl = 'http://localhost:3061/api/authenticate';
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
     // set token if saved in local storage
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;

@@ -7,7 +7,7 @@ import {APP_ROUTES} from '../models/constants/route';
   imports: [
     RouterModule.forRoot(
       APP_ROUTES,
-      {enableTracing: true} // <-- debugging purposes only
+      {enableTracing: false} // <-- debugging purposes only
     )
   ],
   exports: [

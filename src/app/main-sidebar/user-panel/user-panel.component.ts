@@ -16,7 +16,8 @@ export class UserPanelComponent implements OnInit {
 
   ngOnInit() {
     this.userId = localStorage.getItem('currentUser');
-    this.userService.getUser(this.userId).then(user => this.user = user);
+    this.userService.loadActualUser();
+    this.userService.actualUser.subscribe(user => this.user = user);
   }
 
 }

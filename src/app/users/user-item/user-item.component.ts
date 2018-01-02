@@ -36,6 +36,6 @@ export class UserItemComponent implements OnInit {
   }
 
   deleteUser() {
-    this.userService.deleteUser(this.user._id).then(() => this.onDelete.emit());
+    this.userService.deleteUser(this.user._id).subscribe(() => this.onDelete.emit());
   }
 }

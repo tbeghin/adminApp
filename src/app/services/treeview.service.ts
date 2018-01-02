@@ -1,19 +1,19 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 import {Treeview} from '../models/treeview';
 
 @Injectable()
 export class TreeviewService {
   private getUserUrl = 'http://localhost:3061/api/treeview';
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
   }
 
   getTreeview() {
     return this.http
       .get(this.getUserUrl)
       .toPromise()
-      .then(response => response.json() as Treeview)
+      .then(response => response as Treeview)
       .catch(this.handleError);
   }
 
@@ -21,7 +21,7 @@ export class TreeviewService {
     return this.http
       .post(this.getUserUrl, treeview)
       .toPromise()
-      .then(response => response.json() as Treeview)
+      .then(response => response as Treeview)
       .catch(this.handleError);
   }
 
@@ -29,7 +29,7 @@ export class TreeviewService {
     return this.http
       .put(`${this.getUserUrl}/${treeview._id}`, treeview)
       .toPromise()
-      .then(response => response.json() as Treeview)
+      .then(response => response as Treeview)
       .catch(this.handleError);
   }
 
@@ -38,7 +38,7 @@ export class TreeviewService {
     return this.http
       .delete(`${this.getUserUrl}/${id}`)
       .toPromise()
-      .then(response => response.json() as Treeview)
+      .then(response => response as Treeview)
       .catch(this.handleError);
   }
 

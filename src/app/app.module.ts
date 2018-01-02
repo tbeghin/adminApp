@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {LOCALE_ID, NgModule} from '@angular/core';
-import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -9,6 +9,7 @@ import {FacebookService} from 'ngx-facebook';
 import {AuthService} from './services/auth.service';
 import {TreeviewService} from './services/treeview.service';
 import {AuthGuard} from './guard/auth.guard';
+import {BookingService} from './services/booking.service';
 
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {ContentModule} from './content/content.module';
@@ -28,7 +29,7 @@ import {AppComponent} from './app.component';
   ],
   imports: [
     AppRoutingModule,
-    HttpModule,
+    HttpClientModule,
     BrowserModule,
     LoginModule,
     ContentModule,
@@ -47,7 +48,8 @@ import {AppComponent} from './app.component';
     AuthService,
     UserService,
     TreeviewService,
-    AuthGuard
+    AuthGuard,
+    BookingService
   ],
   bootstrap: [AppComponent]
 })

@@ -12,7 +12,7 @@ import {ErrorPageComponent} from "../../content/error-page/error-page.component"
 
 export const APP_ROUTES: Routes = [
   {
-    path: '', component: ContentComponent, canActivate: [AuthGuard],
+    path: '', component: ContentComponent, /*canActivateChild: [AuthGuard],*/
     children: [
       {path: 'dashboard', component: DashboardComponent},
       {path: 'testPage', component: TestModuleComponent},

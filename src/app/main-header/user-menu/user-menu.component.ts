@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthResponse, FacebookService, LoginStatus} from "ngx-facebook";
 import {TransverseData} from "../../models/constants/transverse-data";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-menu',
@@ -9,7 +10,7 @@ import {TransverseData} from "../../models/constants/transverse-data";
 })
 export class UserMenuComponent implements OnInit {
 
-  constructor(private fb: FacebookService) {
+  constructor(private fb: FacebookService, private router: Router) {
   }
 
   ngOnInit() {
@@ -17,15 +18,14 @@ export class UserMenuComponent implements OnInit {
 
   logout(): void {
     let accessToken = localStorage.getItem(TransverseData.accessToken);
-    console.log(this.fb.getAuthResponse());
     this.fb.getLoginStatus().then(
       (loginStatus: LoginStatus) => {
-        console.info(loginStatus);
         if (loginStatus.status === 'connected') {
           this.fb.logout().then(
             (authResponse: AuthResponse) => {
               localStorage.removeItem(TransverseData.accessToken);
               localStorage.removeItem(TransverseData.currentUser);
+              this.router.navigate(['login']);
             }
           );
         }

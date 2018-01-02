@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {User} from '../../models/user';
-import {FacebookService, LoginResponse, LoginOptions, AuthResponse, LoginStatus} from 'ngx-facebook';
+import {FacebookService, LoginResponse} from 'ngx-facebook';
 import {UserService} from '../../services/user.service';
 import {TransverseData} from '../../models/constants/transverse-data'
 
@@ -11,7 +11,7 @@ import {TransverseData} from '../../models/constants/transverse-data'
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent implements OnInit {
+export class SigninComponent {
   loading = false;
   fields: any = {
     fields: 'id,first_name,last_name,email,picture,gender,age_range'
@@ -22,20 +22,10 @@ export class SigninComponent implements OnInit {
               private fb: FacebookService) {
   }
 
-  ngOnInit() {
-  }
-
   loginWithFacebook(): void {
     this.fb.login()
       .then(
         (response: LoginResponse) => {
-          console.info(response);
-
-          this.fb.getLoginStatus().then(
-            (loginStatus: LoginStatus) => {
-              console.info(loginStatus);
-            }
-          );
           localStorage.setItem(TransverseData.accessToken, response.authResponse.accessToken);
           localStorage.setItem(TransverseData.currentUser, response.authResponse.userID);
           this.fb.api(`/${response.authResponse.userID}`, 'get', this.fields)
@@ -51,7 +41,8 @@ export class SigninComponent implements OnInit {
                 this.router.navigate(['dashboard']);
               },
               error => console.error(error))
-        })
+        },
+        error => console.error(error))
       .catch((error: any) => console.error(error));
   }
 }

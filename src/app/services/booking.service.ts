@@ -13,7 +13,7 @@ export class BookingService {
   }
 
   // Implement a method to get the public deals
-  getAllUser(): Observable<Booking[]> {
+  getAllBooking(): Observable<Booking[]> {
     return this.http
       .get(this.getBookingUrl)
       .map(res => res as Booking[] || []);

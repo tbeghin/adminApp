@@ -4,3 +4,7 @@ body{
 .remaining-space {
   flex: 1 1 auto;
 }
+
+a:hover, a:focus {
+  outline: none !important;
+}

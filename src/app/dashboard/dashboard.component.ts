@@ -8,13 +8,13 @@ import {Component} from '@angular/core';
 export class DashboardComponent {
   badgeList: [any] = [
     {
-      icon: "fa fa-users",
+      icon: "group",
       title: "Users",
       data: "5",
       classColor: "primary"
     },
     {
-      icon: "fa fa-dashboard",
+      icon: "dashboard",
       title: "Un test",
       data: "OK",
       classColor: "warning"

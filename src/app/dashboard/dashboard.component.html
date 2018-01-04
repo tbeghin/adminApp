@@ -1,5 +1,8 @@
-<div class="row">
-  <div class="col-md-3" *ngFor="let badge of badgeList">
-    <app-information-badge [data]="badge"></app-information-badge>
+<mat-card>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let badge of badgeList">
+      <app-information-badge [data]="badge"></app-information-badge>
+    </div>
   </div>
-</div>
+</mat-card>
+<app-booking-table></app-booking-table>

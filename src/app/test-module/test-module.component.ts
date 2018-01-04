@@ -1,4 +1,4 @@
-import {Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {BookingService} from "../services/booking.service";
 import {Booking} from "../models/booking";
 import {MatPaginator, PageEvent} from "@angular/material";
@@ -9,8 +9,11 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
   templateUrl: './test-module.component.html',
   styleUrls: ['./test-module.component.css']
 })
-export class TestModuleComponent implements OnInit, AfterViewInit {
+export class TestModuleComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   length: number = 0;
+  startIndex: number;
+  endIndex: number;
   initialPage: PageEvent = new PageEvent();
   data: BehaviorSubject<Booking[]> = new BehaviorSubject(Array<Booking>());
   dataSource: Booking[] = Array<Booking>();
@@ -21,27 +24,22 @@ export class TestModuleComponent implements OnInit, AfterViewInit {
       pageSize: 5,
       pageIndex: 0
     };
-    this.booking.getAllUser().subscribe(value => this.data.next(value))
   }
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
-  }
-
-  ngAfterViewInit() {
-    this.paginator.page.subscribe((page: PageEvent) => {
-      this.resizeData(page);
-    });
-    this.paginator.page.emit(this.initialPage);
-  }
-
-  resizeData(page: PageEvent) {
-    let startIndex = page.pageIndex * page.pageSize;
-    let endIndex = startIndex + page.pageSize;
+    this.booking.getAllBooking().subscribe(value => this.data.next(value));
     this.data.subscribe(bookingList => {
       this.length = bookingList.length;
-      this.dataSource = bookingList.slice(startIndex, endIndex)
+      this.resizeData(this.initialPage, bookingList);
     });
+    this.paginator.page.subscribe((page: PageEvent) => {
+      this.resizeData(page, this.data.getValue());
+    });
+  }
+
+  resizeData(page: PageEvent, bookingList: Booking[]) {
+    this.startIndex = page.pageIndex * page.pageSize;
+    this.endIndex = this.startIndex + page.pageSize;
+    this.dataSource = bookingList.slice(this.startIndex, this.endIndex);
   }
 }

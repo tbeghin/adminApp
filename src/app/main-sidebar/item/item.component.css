@@ -9,3 +9,12 @@ h3 {
   color: white;
   height: 30px;
 }
+
+span {
+  display: inline-block;
+  white-space: normal;
+  max-width: 146px;
+  line-height: 20px;
+  width: max-content;
+  text-align: start;
+}

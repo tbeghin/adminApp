@@ -1,24 +1,23 @@
 <div class="content">
   <mat-tab-group>
     <mat-tab label="Télécharger">
-      <h1>Renommer</h1>
-      <mat-list>
-        <h3 mat-subheader>Dossiers</h3>
-        <mat-list-item *ngFor="let folder of folders">
+      <h1>Renommer {{path}}</h1>
+      <mat-nav-list>
+        <mat-list-item *ngIf="path != ''">
           <mat-icon mat-list-icon>folder</mat-icon>
-          <div mat-line>{{folder.name}}</div>
+          <div (click)="goTo(rootFile)" mat-line>{{rootFile.name}}</div>
         </mat-list-item>
-        <mat-divider></mat-divider>
-        <h3 mat-subheader>Video</h3>
-        <mat-list-item *ngFor="let file of files">
-          <mat-icon mat-list-icon>movie</mat-icon>
-          <div mat-line>{{file.name}}</div>
+        <mat-list-item *ngFor="let file of files | sort: 'isFolder'">
+          <mat-icon *ngIf="file.isFolder" mat-list-icon>folder</mat-icon>
+          <mat-icon *ngIf="!file.isFolder" mat-list-icon>movie</mat-icon>
+          <div (click)="goTo(file)" mat-line>{{file.name}}</div>
         </mat-list-item>
-      </mat-list>
+      </mat-nav-list>
+      <button mat-raised-button (click)="openDialog()">Ajouter un dossier</button>
     </mat-tab>
     <mat-tab label="Osmc">
-        <h1>Some more tab content</h1>
-        <p>...</p>
+      <h1>Some more tab content</h1>
+      <p>...</p>
     </mat-tab>
   </mat-tab-group>
 </div>

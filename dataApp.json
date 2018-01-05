@@ -189,5 +189,49 @@
       "password": "azerty",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIxMjM0NTY3ODkiLCJ1c2VybmFtZSI6IlRlc3RVc2VyMSIsImZpcnN0bmFtZSI6IlRlc3QiLCJsYXN0bmFtZSI6IlVzZXIiLCJqb2IiOiJEw6l2ZWxvcHBldXIiLCJwYXNzd29yZCI6ImF6ZXJ0eSIsInJvbGUiOiJBZG1pbmlzdHJhdGV1ciJ9.f4l58SplpRs4TykF69kBmoCebSL7mBJjhlD3YFbB1NY"
     }
+  ],
+  "osmcFiles": [
+    {
+      "_id": "1",
+      "name": "jeunesse",
+      "isFolder": true,
+      "parent": null,
+      "isEditable": false
+    },
+    {
+      "_id": "2",
+      "name": "film",
+      "isFolder": true,
+      "parent": null,
+      "isEditable": false
+    },
+    {
+      "_id": "3",
+      "name": "série",
+      "isFolder": true,
+      "parent": null,
+      "isEditable": false
+    },
+    {
+      "_id": "4",
+      "name": "Doctor Who",
+      "isFolder": true,
+      "parent": "3",
+      "isEditable": false
+    },
+    {
+      "_id": "5",
+      "name": "test1",
+      "isFolder": false,
+      "parent": "4",
+      "isEditable": false
+    },
+    {
+      "_id": "6",
+      "name": "test2",
+      "isFolder": true,
+      "parent": "4",
+      "isEditable": false
+    }
   ]
 }

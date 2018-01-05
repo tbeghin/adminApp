@@ -1,8 +1,9 @@
 export class OsmcFile {
-  _id: string;
   name: string;
   isFolder: boolean;
-  isEditable: boolean;
 
-  public constructor() { this.isEditable = false; }
+  constructor(name?:string, isFolder?:boolean){
+    this.name = name;
+    this.isFolder = isFolder;
+  }
 }

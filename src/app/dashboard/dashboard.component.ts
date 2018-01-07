@@ -1,20 +1,20 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
   badgeList: [any] = [
     {
-      icon: "fa fa-users",
+      icon: "group",
       title: "Users",
       data: "5",
       classColor: "primary"
     },
     {
-      icon: "fa fa-dashboard",
+      icon: "dashboard",
       title: "Un test",
       data: "OK",
       classColor: "warning"
@@ -23,8 +23,4 @@ export class DashboardComponent implements OnInit {
 
   constructor() {
   }
-
-  ngOnInit() {
-  }
-
 }

@@ -1,16 +1,16 @@
 import {NgModule} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {SignoutComponent} from './signout/signout.component';
 import {SigninComponent} from './signin/signin.component';
+import {MaterialModule} from '../material/material.module';
 
 @NgModule({
   imports: [
     FormsModule,
-    ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
-  declarations: [SignoutComponent, SigninComponent]
+  declarations: [SigninComponent]
 })
 export class LoginModule {
 }

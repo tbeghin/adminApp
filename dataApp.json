@@ -1,13 +1,52 @@
 {
   "users": [
     {
-      "_id": "123456789",
-      "username": "TestUser1",
-      "firstname": "Test",
-      "lastname": "User",
-      "job": "Développeur",
-      "password": "azerty",
-      "role": "Administrateur"
+      "_id": "4352735863",
+      "email": "chacha.beghin@orange.fr",
+      "first_name": "Charlotte",
+      "last_name": "Béghin",
+      "job": "Professeur des écoles",
+      "password": "",
+      "role": "Membre",
+      "username": null
+    },
+    {
+      "_id": "10214850921206873",
+      "email": "thomas.beghin@orange.fr",
+      "first_name": "Thomas",
+      "last_name": "Béghin",
+      "picture": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/20479552_10214050563798438_4633338102047142909_n.jpg?oh=719eefac4d0cce00609e860c79b82141&oe=5AB288A8",
+      "username": null,
+      "job": "Test",
+      "role": "Administrateur",
+      "password": ""
+    },
+    {
+      "_id": "BJaLIaggf",
+      "email": "fanfan.beghin@orange.fr",
+      "first_name": "Fantine",
+      "last_name": "Béghin",
+      "job": "Pilote de ligne",
+      "role": "Membre",
+      "password": "azerty"
+    },
+    {
+      "_id": "Sy6mdd7ef",
+      "email": "titi.beghin@orange.fr",
+      "first_name": "Thibault",
+      "last_name": "Béghin",
+      "job": "Artiste",
+      "role": "Visiteur",
+      "password": "azerty"
+    },
+    {
+      "_id": "S1VLOumlM",
+      "email": "baba.beghin@orange.fr",
+      "first_name": "Baptiste",
+      "last_name": "Béghin",
+      "job": "Acrobate",
+      "role": "Visiteur",
+      "password": "azerty"
     }
   ],
   "treeview": [
@@ -16,7 +55,7 @@
       "name": "Dashboard",
       "url": "/dashboard",
       "description": "Vu d'ensemble",
-      "icon": "fa fa-dashboard",
+      "icon": "dashboard",
       "isDisabled": false,
       "parent": "",
       "grade": 0
@@ -26,7 +65,7 @@
       "name": "Page de test de composants",
       "url": "/testPage",
       "description": "Page permettant de tester les composants",
-      "icon": "fa fa-spinner",
+      "icon": "build",
       "isDisabled": false,
       "parent": "",
       "grade": 0
@@ -35,8 +74,8 @@
       "_id": "987654321",
       "name": "Gestion OSMC",
       "url": "/osmc",
-      "description": "Renommage des films et vidéo avant la prise en compte dans OSMC",
-      "icon": "fa fa-film",
+      "description": "Renommage des films et vidéo avant la prise  en compte dans OSMC",
+      "icon": "videocam",
       "isDisabled": false,
       "parent": "",
       "grade": 0
@@ -46,7 +85,7 @@
       "name": "Paramètres",
       "url": "",
       "description": "",
-      "icon": "fa fa-cogs",
+      "icon": "settings",
       "isDisabled": false,
       "parent": "",
       "grade": 0
@@ -56,20 +95,91 @@
       "name": "Treeview",
       "url": "/treeview",
       "description": "Gestion du menu",
-      "icon": "fa fa-tree",
+      "icon": "apps",
       "isDisabled": false,
       "parent": "5975ad1ab41fca42d47de68e",
-      "grade": 0
+      "grade": 1
     },
     {
       "_id": "5979d4503e23383ad1ec57bf",
       "name": "Gestion des utilisateurs",
       "url": "/users",
       "description": "Gestion des utilisateurs",
-      "icon": "fa fa-user",
+      "icon": "group",
       "isDisabled": false,
       "parent": "5975ad1ab41fca42d47de68e",
-      "grade": 0
+      "grade": 1
+    },
+    {
+      "name": "Profil",
+      "url": "/profil",
+      "icon": "fa fa-user",
+      "description": "La page du profil utilisateur",
+      "grade": 0,
+      "isDisabled": true,
+      "_id": "HkOaNB4eG"
+    }
+  ],
+  "bookings": [
+    {
+      "_id": "1",
+      "date": "2018-02-17T20:00:00",
+      "play": "Une belle pièce",
+      "city": "Provin"
+    },
+    {
+      "_id": "2",
+      "date": "2018-02-24T20:00:00",
+      "play": "Une autre pièce",
+      "city": "Wavrin"
+    },
+    {
+      "_id": "3",
+      "date": "2018-03-03T20:00:00",
+      "play": "Toujours la même pièce",
+      "city": "La boite à rire"
+    },
+    {
+      "_id": "4",
+      "date": "2018-03-10T20:00:00",
+      "play": "Pourquoi pas celle-là",
+      "city": "Annoeullin"
+    },
+    {
+      "_id": "5",
+      "date": "2018-03-17T20:00:00",
+      "play": "Allez on recommence",
+      "city": "Douai"
+    },
+    {
+      "_id": "6",
+      "date": "2018-03-24T20:00:00",
+      "play": "Et puis une autre",
+      "city": "Lens"
+    },
+    {
+      "_id": "7",
+      "date": "2018-03-31T20:00:00",
+      "play": "Ah non, pas celle-là",
+      "city": "Bauvin"
+    },
+    {
+      "_id": "8",
+      "date": "2018-04-07T20:00:00",
+      "play": "Plutôt celle-ci",
+      "city": "Meurchin"
+    },
+    {
+      "_id": "9",
+      "date": "2018-04-14T20:00:00",
+      "play": "Là, je suis d'acoord",
+      "city": "Annoeullin"
+    },
+    {
+      "_id": "10",
+      "date": "2018-04-21T20:00:00",
+      "play": "La dernière pour la fin",
+      "city": "Provin"
     }
   ],
   "authenticate": [
@@ -78,6 +188,50 @@
       "username": "TestUser1",
       "password": "azerty",
       "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIxMjM0NTY3ODkiLCJ1c2VybmFtZSI6IlRlc3RVc2VyMSIsImZpcnN0bmFtZSI6IlRlc3QiLCJsYXN0bmFtZSI6IlVzZXIiLCJqb2IiOiJEw6l2ZWxvcHBldXIiLCJwYXNzd29yZCI6ImF6ZXJ0eSIsInJvbGUiOiJBZG1pbmlzdHJhdGV1ciJ9.f4l58SplpRs4TykF69kBmoCebSL7mBJjhlD3YFbB1NY"
+    }
+  ],
+  "osmcFiles": [
+    {
+      "_id": "1",
+      "name": "jeunesse",
+      "isFolder": true,
+      "parent": null,
+      "isEditable": false
+    },
+    {
+      "_id": "2",
+      "name": "film",
+      "isFolder": true,
+      "parent": null,
+      "isEditable": false
+    },
+    {
+      "_id": "3",
+      "name": "série",
+      "isFolder": true,
+      "parent": null,
+      "isEditable": false
+    },
+    {
+      "_id": "4",
+      "name": "Doctor Who",
+      "isFolder": true,
+      "parent": "3",
+      "isEditable": false
+    },
+    {
+      "_id": "5",
+      "name": "test1",
+      "isFolder": false,
+      "parent": "4",
+      "isEditable": false
+    },
+    {
+      "_id": "6",
+      "name": "test2",
+      "isFolder": true,
+      "parent": "4",
+      "isEditable": false
     }
   ]
 }

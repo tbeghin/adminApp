@@ -1,65 +1,59 @@
 import {Injectable} from '@angular/core';
-import {Headers, Http, Response} from '@angular/http';
-
-import 'rxjs/add/operator/toPromise';
+import {HttpClient} from '@angular/common/http';
 
 import {User} from '../models/user';
+import {Observable} from "rxjs/Observable";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {TransverseData} from "../models/constants/transverse-data";
 
 @Injectable()
 export class UserService {
   // Define the routes we are going to interact with
   private getUserUrl = 'http://localhost:3061/api/users';
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
+  }
+
+  actualUser: BehaviorSubject<User> = new BehaviorSubject(new User());
+
+  loadActualUser(): void {
+    let currentUserId: string = localStorage.getItem(TransverseData.currentUser);
+    this.getUser(currentUserId).subscribe(value => this.actualUser.next(value))
   }
 
   // Implement a method to get the public deals
-  getUser(id: string) {
+  getUser(id: string): Observable<User> {
+    console.log(`Service getUser : ${id}`);
     return this.http
       .get(`${this.getUserUrl}/${id}`)
-      .toPromise()
-      .then(response => response.json() as User)
-      .catch(this.handleError);
+      .map(res => res as User || null);
   }
 
   // Implement a method to get the public deals
-  getAllUser() {
+  getAllUser(): Observable<User[]> {
     return this.http
       .get(this.getUserUrl)
-      .toPromise()
-      .then(response => response.json() as Array<User>)
-      .catch(this.handleError);
+      .map(res => res as User[] || []);
   }
 
   // Implement a method to get the public deals
-  addUser(user: User) {
+  addUser(user: User): Observable<User> {
     return this.http
       .post(this.getUserUrl, user)
-      .toPromise()
-      .then(response => response.json() as User)
-      .catch(this.handleError);
+      .map(res => res as User || null);
   }
 
-  updateUser(user: User){
+  updateUser(user: User): Observable<User> {
+    console.log(`Service updateUser`);
     return this.http
       .put(`${this.getUserUrl}/${user._id}`, user)
-      .toPromise()
-      .then(response => response.json() as User)
-      .catch(this.handleError);
+      .map(res => res as User || null);
   }
 
   // Implement a method to get the public deals
-  deleteUser(id: string) {
+  deleteUser(id: string): Observable<void> {
     return this.http
       .delete(`${this.getUserUrl}/${id}`)
-      .toPromise()
-      .then(response => response.json() as User)
-      .catch(this.handleError);
-  }
-
-  // Implement a method to handle errors if any
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
+      .map(res => console.log(res));
   }
 }

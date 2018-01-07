@@ -1,17 +1,21 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MaterialModule} from '../material/material.module';
 
 import {TreeviewComponent} from './treeview.component';
-import { TreeviewItemComponent } from './treeview-item/treeview-item.component';
+import {TreeviewItemComponent} from './treeview-item/treeview-item.component';
+import {TreeviewModalComponent} from './treeview-modal/treeview-modal.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule
   ],
-  declarations: [TreeviewComponent, TreeviewItemComponent],
-  providers: []
+  declarations: [TreeviewComponent, TreeviewItemComponent, TreeviewModalComponent],
+  entryComponents: [TreeviewModalComponent]
 })
 export class TreeviewModule {
 }

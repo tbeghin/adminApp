@@ -1,53 +1,28 @@
-<div class="col-md-6">
-  <div class="card">
-    <div class="card-title-w-btn">
-      <h3 class="title"><i class="{{item.icon}}"></i> {{item.name}}</h3>
-      <a class="btn btn-default" *ngIf="!isEditable">{{item.grade}}</a>
-      <div class="btn-group">
-        <button class="btn btn-primary" *ngIf="!isEditable"><i class="fa fa-lg fa-plus"></i></button>
-        <button class="btn btn-info" *ngIf="!isEditable" (click)="editItem()"><i
-          class="fa fa-lg fa-edit"></i></button>
-        <button class="btn btn-warning" *ngIf="!isEditable"><i class="fa fa-lg fa-trash"></i></button>
-        <button class="btn btn-primary" type="submit" form="itemForm" *ngIf="isEditable"><i
-          class="fa fa-lg fa-check"></i></button>
-        <button class="btn btn-danger" *ngIf="isEditable" (click)="editItem()"><i
-          class="fa fa-lg fa-ban"></i></button>
-      </div>
+<mat-card class="col-lg-4 col-md-6 col-sm-12">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <i class="{{item.icon}}"></i>
     </div>
-    <div class="card-body">
-      <dl *ngIf="!isEditable" class="dl-horizontal">
-        <dt>Url :</dt>
-        <dd>{{item.url}}</dd>
-        <dt>Description :</dt>
-        <dd>{{item.description}}</dd>
-      </dl>
-      <form class="form-horizontal" id="itemForm" #itemForm="ngForm" (ngSubmit)="memorize(itemForm)" *ngIf="isEditable">
-        <fieldset>
-          <div class="form-group">
-            <label class="col-lg-3 control-label" for="inputUrl">Url :</label>
-            <div class="col-lg-9">
-              <input class="form-control" required name="url" ngModel id="inputUrl" type="text" placeholder="Url">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label" for="inputDesc">Description :</label>
-            <div class="col-lg-9">
-                  <textarea rows="3" class="form-control" ngModel name="desc" id="inputDesc"
-                            placeholder="Une petite description."></textarea>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label" for="inputGrade">Rang :</label>
-            <div class="col-lg-9">
-              <select class="form-control" name="grade" ngModel id="inputGrade">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-            </div>
-          </div>
-        </fieldset>
-      </form>
-    </div>
-  </div>
-</div>
+    <mat-card-title>{{item.name}}</mat-card-title>
+    <mat-card-subtitle>{{item.grade}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <dl class="dl-horizontal">
+      <dt>Url :</dt>
+      <dd>{{item.url}}</dd>
+      <dt>Description :</dt>
+      <dd>{{item.description}}</dd>
+    </dl>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="accent" *ngIf="!item.name" (click)="openDialog()">
+      <mat-icon>library_add</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" *ngIf="item.name" (click)="openDialog()">
+      <mat-icon>mode_edit</mat-icon>
+    </button>
+    <button mat-raised-button color="warn" *ngIf="item.name" (click)="delete()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

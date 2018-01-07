@@ -1,7 +1,7 @@
-<div class="user-panel">
-  <div class="pull-left image"><img class="img-circle" src="../../../assets/user.png" alt="User Image"></div>
-  <div class="pull-left info">
-    <p>{{user.firstname}} {{user.lastname}}</p>
-    <p class="designation">{{user.job}}</p>
-  </div>
-</div>
+<mat-card class="user-panel-card">
+  <mat-card-header>
+    <img mat-card-avatar src="{{user.picture}}" alt="User Image">
+    <mat-card-title>{{user.first_name}} {{user.last_name}}</mat-card-title>
+    <mat-card-subtitle>{{user.role}}</mat-card-subtitle>
+  </mat-card-header>
+</mat-card>

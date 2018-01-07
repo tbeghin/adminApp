@@ -1,44 +1,23 @@
-<div class="row">
-  <div class="col-md-12">
-    <div class="card">
-      <h3 class="card-title">Voir le dossier</h3>
-      <div class="form-group col-md-4">
-        <select class="form-control">
-          <option *ngFor="let folder of folders">{{folder}}</option>
-        </select>
-      </div>
-      <button type="button" class="btn btn-default col-md-2">OK</button>
-      <br>
-    </div>
-    <div class="card">
-      <h3 class="card-title">Liste des fichiers video</h3>
-      <ul>
-        <li *ngFor="let fileName of listFile">{{fileName}}
-          <button class="btn btn-primary btn-xs" (click)="changeName(fileName)"><i class="fa fa-edit"></i></button>
-        </li>
-      </ul>
-      <br>
-    </div>
-    <div class="card">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="well bs-component">
-            <form class="form-horizontal" #changeNameForm="ngForm" (ngSubmit)="save()">
-              <fieldset>
-                <legend>Changement du titre du fichier</legend>
-                <div class="form-group">
-                  <label class="col-md-4 control-label" for="inputTitle">Nouveau titre</label>
-                  <div class="col-md-6">
-                    <input class="form-control" name="changeName" [(ngModel)]="updateName.after" id="inputTitle"
-                           type="text" placeholder="Titre">
-                  </div>
-                  <button class="btn btn-success col-md-2" type="submit">Valider</button>
-                </div>
-              </fieldset>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="content">
+  <mat-tab-group>
+    <mat-tab label="Télécharger">
+      <h1>Renommer {{path}}</h1>
+      <mat-nav-list>
+        <mat-list-item *ngIf="path != ''">
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <div (click)="goTo(rootFile)" mat-line>{{rootFile.name}}</div>
+        </mat-list-item>
+        <mat-list-item *ngFor="let file of files | sort: 'isFolder'">
+          <mat-icon *ngIf="file.isFolder" mat-list-icon>folder</mat-icon>
+          <mat-icon *ngIf="!file.isFolder" mat-list-icon>movie</mat-icon>
+          <div (click)="goTo(file)" mat-line>{{file.name}}</div>
+        </mat-list-item>
+      </mat-nav-list>
+      <button mat-raised-button (click)="openDialog()">Ajouter un dossier</button>
+    </mat-tab>
+    <mat-tab label="Osmc">
+      <h1>Some more tab content</h1>
+      <p>...</p>
+    </mat-tab>
+  </mat-tab-group>
 </div>

@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {OsmcService} from './osmc.service';
+import {OsmcService} from '../services/osmc.service';
+import {OsmcFile} from '../models/osmcFile';
+import {MatDialog, MatDialogConfig} from "@angular/material";
+import {AddFolderComponent} from "./osmc-modal/add-folder/add-folder/add-folder.component";
 
 @Component({
   selector: 'app-osmc',
@@ -7,40 +10,48 @@ import {OsmcService} from './osmc.service';
   styleUrls: ['./osmc.component.css']
 })
 export class OsmcComponent implements OnInit {
-  listFile: Array<any>;
-  folders: Array<any>;
-  updateName: any;
+  rootFile: OsmcFile;
+  files: Array<OsmcFile>;
+  path: string;
 
-  constructor(private osmcService: OsmcService) {
-    this.updateName = {
-      before: '',
-      after: ''
-    };
+  constructor(private osmcService: OsmcService,
+              public dialog: MatDialog) {
+    this.path = '';
+    this.files = Array<OsmcFile>();
+    this.rootFile = new OsmcFile();
+    this.rootFile.name = '..';
+    this.rootFile.isFolder = true;
   }
 
   ngOnInit() {
-    this.getAllNames();
+    this.getAllNames(this.path);
   }
 
-  getAllNames() {
-    this.osmcService.getOsmcFile().then(data => {
-      this.listFile = data.file;
-      this.folders = data.directory;
+  openDialog(): void {
+    const dialogConfig = {
+      width: '500px',
+      data: ''
+    };
+
+    const dialogRef = this.dialog.open(AddFolderComponent, dialogConfig as MatDialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!!result) {
+        this.files.push(new OsmcFile(result, true));
+      }
     });
   }
 
-  changeName(fileName) {
-    this.updateName.before = fileName;
-    this.updateName.after = fileName;
+  goTo(file: OsmcFile) {
+    if(file.isFolder) {
+      this.getAllNames(`${this.path}\\${file.name}`);
+    }
   }
 
-  save() {
-    this.osmcService.updateFileName(this.updateName.before, this.updateName.after).then(
-      x => {
-        this.getAllNames();
-        this.updateName.before = '';
-        this.updateName.after = '';
-      }
-    );
+  getAllNames(folderPath: string) {
+    this.osmcService.getOsmcFile(folderPath).then(data => {
+      this.path = data.path;
+      this.files = data.files;
+    });
   }
 }

@@ -1,15 +1,13 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-
-const appRoutes: Routes = [];
+import {RouterModule} from '@angular/router';
+import {APP_ROUTES} from '../models/constants/route';
 
 @NgModule({
-  declarations: [
-  ],
+  declarations: [],
   imports: [
     RouterModule.forRoot(
-      appRoutes,
-      {enableTracing: true} // <-- debugging purposes only
+      APP_ROUTES,
+      {enableTracing: false} // <-- debugging purposes only
     )
   ],
   exports: [

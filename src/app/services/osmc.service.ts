@@ -1,18 +1,21 @@
 import {Injectable} from '@angular/core';
-import {Headers, Http, Response} from '@angular/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {OsmcFile} from '../models/osmcFile';
 
 @Injectable()
 export class OsmcService {
   private getOsmcUrl = 'http://localhost:3062/api/osmcFiles';
+  private params = new HttpParams();
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
   }
 
-  getOsmcFile() {
+  getOsmcFile(folderPath: string) {
+    this.params = this.params.set('folderPath', folderPath);
     return this.http
-      .get(this.getOsmcUrl)
+      .get(this.getOsmcUrl, {params: this.params})
       .toPromise()
-      .then(response => response.json())
+      .then(response => response as OsmcFile)
       .catch(this.handleError);
   }
 

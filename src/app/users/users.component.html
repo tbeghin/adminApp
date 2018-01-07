@@ -1,4 +1,7 @@
-<div class="row">
-  <app-user-item class="col-md-6" *ngFor="let user of users" [user]="user"></app-user-item>
-  <app-user-item class="col-md-6" [user]="newUser"></app-user-item>
-</div>
+<app-user-item
+  class="col-lg-4 col-md-6 col-sm-12"
+  *ngFor="let user of users; let i = index"
+  [user]="user"
+  (onDelete)="onDeleteUser(i)"
+  (onCreate)="onCreateUser()"
+></app-user-item>

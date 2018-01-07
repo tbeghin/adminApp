@@ -10,12 +10,19 @@ import {User} from '../models/user';
 })
 export class UsersComponent implements OnInit {
   users: Array<User>;
-  newUser: User;
+
   constructor(private userService: UserService) {
   }
 
   ngOnInit() {
-    this.newUser = new User();
-    this.userService.getAllUser().then(users => this.users = users);
+    this.userService.getAllUser().subscribe(users => this.users = users);
+  }
+
+  onDeleteUser(index: number) {
+    this.users.splice(index, 1);
+  }
+
+  onCreateUser() {
+    this.users.push(new User());
   }
 }

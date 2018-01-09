@@ -1,14 +1,14 @@
-import {Routes} from "@angular/router";
+import {Routes} from '@angular/router';
 
-import {OsmcComponent} from "../../osmc/osmc.component";
-import {AuthGuard} from "../../guard/auth.guard";
-import {ContentComponent} from "../../content/content.component";
-import {SigninComponent} from "../../login/signin/signin.component";
-import {DashboardComponent} from "../../dashboard/dashboard.component";
-import {TreeviewComponent} from "../../treeview/treeview.component";
-import {UsersComponent} from "../../users/users.component";
-import {TestModuleComponent} from "../../test-module/test-module.component";
-import {ErrorPageComponent} from "../../content/error-page/error-page.component";
+import {OsmcComponent} from '../../osmc/osmc.component';
+import {AuthGuard} from '../../guard/auth.guard';
+import {ContentComponent} from '../../content/content.component';
+import {SigninComponent} from '../../login/signin/signin.component';
+import {DashboardComponent} from '../../dashboard/dashboard.component';
+import {TreeviewComponent} from '../../treeview/treeview.component';
+import {UsersComponent} from '../../users/users.component';
+import {TestModuleComponent} from '../../test-module/test-module.component';
+import {ErrorPageComponent} from '../../content/error-page/error-page.component';
 
 export const APP_ROUTES: Routes = [
   {

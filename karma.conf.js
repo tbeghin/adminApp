@@ -15,6 +15,10 @@ module.exports = function (config) {
     client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
+    files: [
+      'https://connect.facebook.net/fr_FR/sdk.js'
+    ],
+    crossOriginAttribute: false,
     coverageIstanbulReporter: {
       reports: [ 'html', 'lcovonly' ],
       fixWebpackSourcePaths: true

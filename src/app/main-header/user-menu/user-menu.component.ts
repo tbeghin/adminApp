@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthResponse, FacebookService, LoginStatus} from "ngx-facebook";
-import {TransverseData} from "../../models/constants/transverse-data";
-import {Router} from "@angular/router";
+import {AuthResponse, FacebookService, LoginStatus} from 'ngx-facebook';
+import {TransverseData} from '../../models/constants/transverse-data';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-menu',
@@ -17,7 +17,7 @@ export class UserMenuComponent implements OnInit {
   }
 
   logout(): void {
-    let accessToken = localStorage.getItem(TransverseData.accessToken);
+    const accessToken = localStorage.getItem(TransverseData.accessToken);
     this.fb.getLoginStatus().then(
       (loginStatus: LoginStatus) => {
         if (loginStatus.status === 'connected') {

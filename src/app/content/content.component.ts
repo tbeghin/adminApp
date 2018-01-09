@@ -15,11 +15,11 @@ export class ContentComponent implements OnInit {
   treeviewPanel: Treeview = new Treeview();
 
   constructor(private route: Router, private treeviewService: TreeviewService) {
-    this.treeviewService.getTreeview().then(
+    this.treeviewService.getTreeview().subscribe(
       treeviews => {
         this.treeviewPanel = _.find(
           treeviews,
-          treeview => treeview.url == this.route.url
+          treeview => treeview.url === this.route.url
         );
         this.treeviewPanel = this.treeviewPanel || new Treeview();
       }

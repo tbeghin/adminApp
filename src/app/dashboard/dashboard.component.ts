@@ -8,16 +8,16 @@ import {Component} from '@angular/core';
 export class DashboardComponent {
   badgeList: [any] = [
     {
-      icon: "group",
-      title: "Users",
-      data: "5",
-      classColor: "primary"
+      icon: 'group',
+      title: 'Users',
+      data: '5',
+      classColor: 'primary'
     },
     {
-      icon: "dashboard",
-      title: "Un test",
-      data: "OK",
-      classColor: "warning"
+      icon: 'dashboard',
+      title: 'Un test',
+      data: 'OK',
+      classColor: 'warning'
     }
   ];
 

@@ -2,9 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 import {User} from '../models/user';
-import {Observable} from "rxjs/Observable";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
-import {TransverseData} from "../models/constants/transverse-data";
+import {Observable} from 'rxjs/Observable';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {TransverseData} from '../models/constants/transverse-data';
 
 @Injectable()
 export class UserService {
@@ -17,8 +17,8 @@ export class UserService {
   actualUser: BehaviorSubject<User> = new BehaviorSubject(new User());
 
   loadActualUser(): void {
-    let currentUserId: string = localStorage.getItem(TransverseData.currentUser);
-    this.getUser(currentUserId).subscribe(value => this.actualUser.next(value))
+    const currentUserId: string = localStorage.getItem(TransverseData.currentUser);
+    this.getUser(currentUserId).subscribe(value => this.actualUser.next(value));
   }
 
   // Implement a method to get the public deals

@@ -1,6 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ContentComponent } from './content.component';
+import {ContentComponent} from './content.component';
+import {MaterialModule} from "../material/material.module";
+import {MainHeaderModule} from "../main-header/main-header.module";
+import {MainSidebarModule} from "../main-sidebar/main-sidebar.module";
+import {DashboardModule} from "../dashboard/dashboard.module";
+import {CommonModule} from "@angular/common";
+import {Router, RouterModule} from "@angular/router";
+import {TreeviewService} from "../services/treeview.service";
+import {Observable} from "rxjs/Observable";
+import {Treeview} from "../models/treeview";
 
 describe('ContentComponent', () => {
   let component: ContentComponent;
@@ -8,9 +17,29 @@ describe('ContentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContentComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        ContentComponent
+      ],
+      imports: [
+        CommonModule,
+        MainHeaderModule,
+        MainSidebarModule,
+        DashboardModule,
+        RouterModule,
+        MaterialModule
+      ],
+      providers: [
+        {
+          provide: TreeviewService,
+          useClass: MockTreeviewService
+        },
+        {
+          provide: Router,
+          useClass: class {
+          }
+        }
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -23,3 +52,9 @@ describe('ContentComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+class MockTreeviewService extends TreeviewService {
+  getTreeview(): Observable<Treeview[]> {
+    return new Observable<Treeview[]>();
+  }
+}

@@ -3,14 +3,14 @@
     <mat-tab label="Télécharger">
       <h1>Renommer {{path}}</h1>
       <mat-nav-list>
-        <mat-list-item *ngIf="path != ''">
+        <mat-list-item (click)="goTo(rootFile)" *ngIf="path != ''">
           <mat-icon mat-list-icon>folder</mat-icon>
-          <div (click)="goTo(rootFile)" mat-line>{{rootFile.name}}</div>
+          <div mat-line>{{rootFile.name}}</div>
         </mat-list-item>
-        <mat-list-item *ngFor="let file of files | sort: 'isFolder'">
+        <mat-list-item (click)="goTo(file)" *ngFor="let file of files | sort: 'isFolder'">
           <mat-icon *ngIf="file.isFolder" mat-list-icon>folder</mat-icon>
           <mat-icon *ngIf="!file.isFolder" mat-list-icon>movie</mat-icon>
-          <div (click)="goTo(file)" mat-line>{{file.name}}</div>
+          <div mat-line>{{file.name}}</div>
         </mat-list-item>
       </mat-nav-list>
       <button mat-raised-button (click)="openDialog()">Ajouter un dossier</button>

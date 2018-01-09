@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Treeview} from '../models/treeview';
+import {Observable} from "rxjs/Observable";
+import {errorObject} from "rxjs/util/errorObject";
 
 @Injectable()
 export class TreeviewService {
@@ -9,36 +11,32 @@ export class TreeviewService {
   constructor(private http: HttpClient) {
   }
 
-  getTreeview() {
+  getTreeview(): Observable<Treeview[]> {
     return this.http
       .get(this.getUserUrl)
-      .toPromise()
-      .then(response => response as Treeview)
+      .map(res => res as Treeview[] || Array<Treeview>())
       .catch(this.handleError);
   }
 
-  saveTreeview(treeview: any) {
+  saveTreeview(treeview: any): Observable<Treeview> {
     return this.http
       .post(this.getUserUrl, treeview)
-      .toPromise()
-      .then(response => response as Treeview)
+      .map(res => res as Treeview || null)
       .catch(this.handleError);
   }
 
-  updateTreeview(treeview: Treeview) {
+  updateTreeview(treeview: Treeview): Observable<Treeview> {
     return this.http
       .put(`${this.getUserUrl}/${treeview._id}`, treeview)
-      .toPromise()
-      .then(response => response as Treeview)
+      .map(res => res as Treeview || null)
       .catch(this.handleError);
   }
 
   // Implement a method to get the public deals
-  deleteTreeview(id: string) {
+  deleteTreeview(id: string): Observable<Treeview> {
     return this.http
       .delete(`${this.getUserUrl}/${id}`)
-      .toPromise()
-      .then(response => response as Treeview)
+      .map(res => res as Treeview || null)
       .catch(this.handleError);
   }
 

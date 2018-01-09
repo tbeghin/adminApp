@@ -51,7 +51,7 @@ export class UserModalComponent implements OnInit {
       this.user.role = this.role.value;
       this.user.password = this.password.value;
       if (this.user._id) {
-        this.userService.updateUser(this.user).subscribe(user =>{
+        this.userService.updateUser(this.user).subscribe(user => {
           this.userService.loadActualUser();
           this.dialogRef.close(user);
         });

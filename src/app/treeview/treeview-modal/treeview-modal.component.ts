@@ -39,14 +39,14 @@ export class TreeviewModalComponent implements OnInit {
   }
 
   save() {
-    if(this.treeviewForms.valid) {
+    if (this.treeviewForms.valid) {
       this.item.url = this.url.value;
       this.item.description = this.description.value;
       this.item.grade = this.grade.value;
       if (this.item._id) {
-        this.treeviewService.updateTreeview(this.item).then(item => this.dialogRef.close(item));
+        this.treeviewService.updateTreeview(this.item).subscribe(item => this.dialogRef.close(item));
       } else {
-        this.treeviewService.saveTreeview(this.item).then(item => {
+        this.treeviewService.saveTreeview(this.item).subscribe(item => {
           this.dialogRef.close(item);
           this.onCreate.emit();
         });

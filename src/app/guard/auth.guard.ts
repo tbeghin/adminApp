@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
       this.handleError
     ).catch(
       this.handleError
-    )
+    );
   }
 
   canActivateChild(): Promise<boolean> {

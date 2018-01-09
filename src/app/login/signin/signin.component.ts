@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {User} from '../../models/user';
 import {FacebookService, LoginResponse} from 'ngx-facebook';
 import {UserService} from '../../services/user.service';
-import {TransverseData} from '../../models/constants/transverse-data'
+import {TransverseData} from '../../models/constants/transverse-data';
 
 
 @Component({
@@ -31,7 +31,7 @@ export class SigninComponent {
           this.fb.api(`/${response.authResponse.userID}`, 'get', this.fields)
             .then(
               userInfo => {
-                let user = new User();
+                const user = new User();
                 user._id = userInfo.id;
                 user.email = userInfo.email;
                 user.first_name = userInfo.first_name;
@@ -40,7 +40,7 @@ export class SigninComponent {
                 this.userService.updateUser(user);
                 this.router.navigate(['dashboard']);
               },
-              error => console.error(error))
+              error => console.error(error));
         },
         error => console.error(error))
       .catch((error: any) => console.error(error));

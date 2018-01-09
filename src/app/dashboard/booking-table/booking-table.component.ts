@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Booking} from "../../models/booking";
-import {MatPaginator, PageEvent} from "@angular/material";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
-import {BookingService} from "../../services/booking.service";
+import {Booking} from '../../models/booking';
+import {MatPaginator, PageEvent} from '@angular/material';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {BookingService} from '../../services/booking.service';
 
 @Component({
   selector: 'app-booking-table',
@@ -11,7 +11,7 @@ import {BookingService} from "../../services/booking.service";
 })
 export class BookingTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  length: number = 0;
+  length = 0;
   startIndex: number;
   endIndex: number;
   initialPage: PageEvent = new PageEvent();

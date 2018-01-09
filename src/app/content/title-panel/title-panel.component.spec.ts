@@ -1,6 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TitlePanelComponent } from './title-panel.component';
+import {TitlePanelComponent} from './title-panel.component';
+import {MaterialModule} from "../../material/material.module";
 
 describe('TitlePanelComponent', () => {
   let component: TitlePanelComponent;
@@ -8,14 +9,22 @@ describe('TitlePanelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TitlePanelComponent ]
+      declarations: [TitlePanelComponent],
+      imports: [
+        MaterialModule
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TitlePanelComponent);
     component = fixture.componentInstance;
+    component.title = {
+      name: "Dashboard",
+      description: "Vu d'ensemble",
+      icon: "dashboard"
+    };
     fixture.detectChanges();
   });
 

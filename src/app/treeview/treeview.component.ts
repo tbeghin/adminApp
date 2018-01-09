@@ -16,7 +16,7 @@ export class TreeviewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.treeviewservice.getTreeview().then(treeview => this.treeview = [...treeview, new Treeview()]);
+    this.treeviewservice.getTreeview().subscribe(treeview => this.treeview = [...treeview, new Treeview()]);
   }
 
   save() {

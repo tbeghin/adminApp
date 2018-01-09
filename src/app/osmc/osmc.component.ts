@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {OsmcService} from '../services/osmc.service';
 import {OsmcFile} from '../models/osmcFile';
-import {MatDialog, MatDialogConfig} from "@angular/material";
-import {AddFolderComponent} from "./osmc-modal/add-folder/add-folder/add-folder.component";
+import {MatDialog, MatDialogConfig} from '@angular/material';
+import {AddFolderComponent} from './osmc-modal/add-folder/add-folder/add-folder.component';
 
 @Component({
   selector: 'app-osmc',
@@ -32,9 +32,7 @@ export class OsmcComponent implements OnInit {
       width: '500px',
       data: ''
     };
-
     const dialogRef = this.dialog.open(AddFolderComponent, dialogConfig as MatDialogConfig);
-
     dialogRef.afterClosed().subscribe(result => {
       if (!!result) {
         this.files.push(new OsmcFile(result, true));
@@ -43,7 +41,7 @@ export class OsmcComponent implements OnInit {
   }
 
   goTo(file: OsmcFile) {
-    if(file.isFolder) {
+    if (file.isFolder) {
       this.getAllNames(`${this.path}\\${file.name}`);
     }
   }

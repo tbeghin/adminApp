@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {BookingService} from "../services/booking.service";
-import {Booking} from "../models/booking";
-import {MatPaginator, PageEvent} from "@angular/material";
-import {BehaviorSubject} from "rxjs/BehaviorSubject";
+import {BookingService} from '../services/booking.service';
+import {Booking} from '../models/booking';
+import {MatPaginator, PageEvent} from '@angular/material';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Component({
   selector: 'app-test-module',
@@ -11,7 +11,7 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 })
 export class TestModuleComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  length: number = 0;
+  length = 0;
   startIndex: number;
   endIndex: number;
   initialPage: PageEvent = new PageEvent();

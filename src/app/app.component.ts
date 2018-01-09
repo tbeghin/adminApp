@@ -7,8 +7,7 @@ import {FacebookService, InitParams} from 'ngx-facebook';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  isLoad: boolean = false;
+  isLoad = false;
 
   constructor(private fb: FacebookService) {
     const params: InitParams = {

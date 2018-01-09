@@ -36,6 +36,6 @@ export class TreeviewItemComponent implements OnInit {
   }
 
   delete() {
-    this.treeviewService.deleteTreeview(this.item._id).then(() => this.onDelete.emit());
+    this.treeviewService.deleteTreeview(this.item._id).subscribe(() => this.onDelete.emit());
   }
 }

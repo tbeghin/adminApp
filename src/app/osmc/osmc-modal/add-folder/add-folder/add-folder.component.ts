@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {OsmcService} from '../../../../services/osmc.service';
 import {OsmcFile} from '../../../../models/osmcFile';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-add-folder',
@@ -23,7 +23,7 @@ export class AddFolderComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.folderName);
-    if(this.folderName.valid) {
+    if (this.folderName.valid) {
       this.dialogRef.close(this.folderName.value);
       // this.osmcService.;
     }

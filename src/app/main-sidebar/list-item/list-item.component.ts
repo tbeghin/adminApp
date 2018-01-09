@@ -14,7 +14,7 @@ export class ListItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.treeviewservice.getTreeview().then(
+    this.treeviewservice.getTreeview().subscribe(
       treeview => {
         const childrenElt: Array<Treeview> = [];
         const mainItem: Array<Treeview> = [];

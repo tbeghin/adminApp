@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {TitlePanelComponent} from './title-panel.component';
-import {MaterialModule} from "../../material/material.module";
+import {MaterialModule} from '../../material/material.module';
 
 describe('TitlePanelComponent', () => {
   let component: TitlePanelComponent;
@@ -21,9 +21,9 @@ describe('TitlePanelComponent', () => {
     fixture = TestBed.createComponent(TitlePanelComponent);
     component = fixture.componentInstance;
     component.title = {
-      name: "Dashboard",
-      description: "Vu d'ensemble",
-      icon: "dashboard"
+      name: 'Dashboard',
+      description: 'Vu d\'ensemble',
+      icon: 'dashboard'
     };
     fixture.detectChanges();
   });

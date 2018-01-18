@@ -1,12 +1,12 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { OsmcService } from './osmc.service';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('OsmcService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[HttpClientTestingModule],
+      imports: [HttpClientTestingModule],
       providers: [OsmcService]
     });
   });

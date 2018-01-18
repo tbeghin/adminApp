@@ -1,9 +1,11 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {BookingTableComponent} from './booking-table.component';
-import {MaterialModule} from "../../material/material.module";
-import {BookingService} from "../../services/booking.service";
-import {Router} from "@angular/router";
+import {MaterialModule} from '../../material/material.module';
+import {BookingService} from '../../services/booking.service';
+
+class MockBookingService extends BookingService {
+}
 
 describe('BookingTableComponent', () => {
   let component: BookingTableComponent;
@@ -35,7 +37,3 @@ describe('BookingTableComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-
-class MockBookingService extends BookingService {
-}

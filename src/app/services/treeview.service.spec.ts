@@ -2,7 +2,7 @@ import {TestBed, async, inject} from '@angular/core/testing';
 import {HttpClientTestingModule, HttpTestingController, RequestMatch} from '@angular/common/http/testing';
 
 import {TreeviewService} from './treeview.service';
-import {Treeview} from "../models/treeview";
+import {Treeview} from '../models/treeview';
 
 describe('TreeviewService', () => {
   beforeEach(() => {
@@ -24,22 +24,22 @@ describe('TreeviewService', () => {
     [TreeviewService, HttpTestingController],
     (service: TreeviewService, backend: HttpTestingController) => {
       service.getTreeview().subscribe();
-      backend.match('http://localhost:3061/api/treeview')
+      backend.match('http://localhost:3061/api/treeview');
     })));
 
   it('saveTreeview success', async(inject(
     [TreeviewService, HttpTestingController],
     (service: TreeviewService, backend: HttpTestingController) => {
       service.saveTreeview(new Treeview()).subscribe();
-      backend.match('http://localhost:3061/api/treeview')
+      backend.match('http://localhost:3061/api/treeview');
     })));
 
   it('updateTreeview success', async(inject(
     [TreeviewService, HttpTestingController],
     (service: TreeviewService, backend: HttpTestingController) => {
-      let treeview = new Treeview();
-      treeview._id = "123";
-      let request: RequestMatch = {
+      const treeview = new Treeview();
+      treeview._id = '123';
+      const request: RequestMatch = {
         method: 'PUT',
         url: 'http://localhost:3061/api/treeview/123'
       };
@@ -50,11 +50,11 @@ describe('TreeviewService', () => {
   it('deleteTreeview success', async(inject(
     [TreeviewService, HttpTestingController],
     (service: TreeviewService, backend: HttpTestingController) => {
-      let request: RequestMatch = {
+      const request: RequestMatch = {
         method: 'DELETE',
         url: 'http://localhost:3061/api/treeview/123'
       };
-      service.deleteTreeview("123").subscribe();
+      service.deleteTreeview('123').subscribe();
       backend.match(request);
     })));
 });

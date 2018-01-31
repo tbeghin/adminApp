@@ -15,21 +15,21 @@ export class TreeviewService {
     return Promise.reject(error.message || error);
   }
 
-  getTreeview(): Observable<{} | Treeview[]> {
+  getTreeview(): Observable<Treeview[]> {
     return this.http
       .get(this.getUserUrl)
       .map(res => res as Treeview[] || Array<Treeview>())
       .catch(this.handleError);
   }
 
-  saveTreeview(treeview: any): Observable<{} | Treeview> {
+  saveTreeview(treeview: any): Observable<Treeview> {
     return this.http
       .post(this.getUserUrl, treeview)
       .map(res => res as Treeview || null)
       .catch(this.handleError);
   }
 
-  updateTreeview(treeview: Treeview): Observable<{} | Treeview> {
+  updateTreeview(treeview: Treeview): Observable<Treeview> {
     return this.http
       .put(`${this.getUserUrl}/${treeview._id}`, treeview)
       .map(res => res as Treeview || null)
@@ -37,7 +37,7 @@ export class TreeviewService {
   }
 
   // Implement a method to get the public deals
-  deleteTreeview(id: string): Observable<{} | Treeview> {
+  deleteTreeview(id: string): Observable<Treeview> {
     return this.http
       .delete(`${this.getUserUrl}/${id}`)
       .map(res => res as Treeview || null)

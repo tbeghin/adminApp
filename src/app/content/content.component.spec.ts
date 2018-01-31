@@ -38,11 +38,6 @@ describe('ContentComponent', () => {
         {
           provide: TreeviewService,
           useClass: MockTreeviewService
-        },
-        {
-          provide: Router,
-          useClass: class {
-          }
         }
       ]
     }).compileComponents();
@@ -50,6 +45,10 @@ describe('ContentComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ContentComponent);
+
+    //  let treeviewService = fixture.debugElement.injector.get(TreeviewService);
+    // spyOn(treeviewService, 'getTreeview')
+    //   .and.returnValue(Promise.resolve(new Observable<Treeview[]>()));
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

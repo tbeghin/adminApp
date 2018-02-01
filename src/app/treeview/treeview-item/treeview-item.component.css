@@ -1,0 +1,15 @@
+mat-card {
+  margin: 5px;
+}
+
+.dl-horizontal dt {
+  width: 130px;
+}
+
+.dl-horizontal dd {
+  margin-left: 140px;
+}
+
+mat-card-content.mat-card-content {
+  height: 60px;
+}

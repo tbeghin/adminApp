@@ -1,8 +1,8 @@
 <h3 *ngIf="item.isTreeview">{{item.name}}</h3>
 <app-item *ngFor="let child of item.children" [item]="child"></app-item>
 
-<mat-list-item *ngIf="!item.isTreeview">
-  <a routerLink="{{item.url}}" mat-icon-button>
+<mat-list-item routerLink="{{item.url}}" *ngIf="!item.isTreeview">
+  <a mat-icon-button>
     <mat-icon>{{item.icon}}</mat-icon>
     <span>{{item.name}}</span>
   </a>

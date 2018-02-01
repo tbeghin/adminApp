@@ -4,7 +4,7 @@
   display: flex;
   border-radius: 4px;
   color: #FFF;
-  margin-bottom: 30px;
+  margin: 10px 0;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }

@@ -47,7 +47,7 @@ export class OsmcComponent implements OnInit {
   }
 
   getAllNames(folderPath: string) {
-    this.osmcService.getOsmcFile(folderPath).then(data => {
+    this.osmcService.getOsmcFile(folderPath).subscribe(data => {
       this.path = data.path;
       this.files = data.files;
     });

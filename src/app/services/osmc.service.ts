@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {OsmcFile} from '../models/osmcFile';
+import {Observable} from "rxjs/Observable";
+import {OsmcContainer} from "../models/osmc-container";
+import {AddFolderRequest} from "./models/add-folder-request";
 
 @Injectable()
 export class OsmcService {
@@ -10,12 +13,11 @@ export class OsmcService {
   constructor(private http: HttpClient) {
   }
 
-  getOsmcFile(folderPath: string) {
+  getOsmcFile(folderPath: string): Observable<OsmcContainer> {
     this.params = this.params.set('folderPath', folderPath);
     return this.http
       .get(this.getOsmcUrl, {params: this.params})
-      .toPromise()
-      .then(response => response as OsmcFile)
+      .map(response => response as OsmcFile)
       .catch(this.handleError);
   }
 
@@ -27,6 +29,14 @@ export class OsmcService {
         success => console.log(success),
         error => console.log(error)
       )
+      .catch(this.handleError);
+  }
+
+  addFolder(folderPath: string, folderName: string): Observable<string> {
+    const body: AddFolderRequest = new AddFolderRequest(folderPath, folderName);
+    return this.http
+      .post(this.getOsmcUrl, body)
+      .map(response => response as string)
       .catch(this.handleError);
   }
 

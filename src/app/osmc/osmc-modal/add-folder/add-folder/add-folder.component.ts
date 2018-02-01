@@ -24,8 +24,9 @@ export class AddFolderComponent implements OnInit {
   onSubmit(): void {
     console.log(this.folderName);
     if (this.folderName.valid) {
-      this.dialogRef.close(this.folderName.value);
-      // this.osmcService.;
+      const newFolder: string = this.folderName.value;
+      this.dialogRef.close(newFolder);
+      this.osmcService.addFolder(newFolder);
     }
   }
 

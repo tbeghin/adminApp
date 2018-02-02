@@ -30,7 +30,7 @@ export class OsmcComponent implements OnInit {
   openDialog(): void {
     const dialogConfig = {
       width: '500px',
-      data: ''
+      data: this.path
     };
     const dialogRef = this.dialog.open(AddFolderComponent, dialogConfig as MatDialogConfig);
     dialogRef.afterClosed().subscribe(result => {

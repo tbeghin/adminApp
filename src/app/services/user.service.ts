@@ -5,6 +5,7 @@ import {User} from '../models/user';
 import {Observable} from 'rxjs/Observable';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {TransverseData} from '../models/constants/transverse-data';
+import {HandleError} from "./handle-error";
 
 @Injectable()
 export class UserService {
@@ -26,34 +27,38 @@ export class UserService {
     console.log(`Service getUser : ${id}`);
     return this.http
       .get(`${this.getUserUrl}/${id}`)
-      .map(res => res as User || null);
+      .map(res => res as User || null)
+      .catch(err => Observable.throw(HandleError.createError(err)));
   }
 
   // Implement a method to get the public deals
   getAllUser(): Observable<User[]> {
     return this.http
       .get(this.getUserUrl)
-      .map(res => res as User[] || []);
+      .map(res => res as User[] || [])
+      .catch(err => Observable.throw(HandleError.createError(err)));
   }
 
   // Implement a method to get the public deals
   addUser(user: User): Observable<User> {
     return this.http
       .post(this.getUserUrl, user)
-      .map(res => res as User || null);
+      .map(res => res as User || null)
+      .catch(err => Observable.throw(HandleError.createError(err)));
   }
 
   updateUser(user: User): Observable<User> {
     console.log(`Service updateUser`);
     return this.http
       .put(`${this.getUserUrl}/${user._id}`, user)
-      .map(res => res as User || null);
+      .map(res => res as User || null)
+      .catch(err => Observable.throw(HandleError.createError(err)));
   }
 
   // Implement a method to get the public deals
   deleteUser(id: string): Observable<void> {
     return this.http
       .delete(`${this.getUserUrl}/${id}`)
-      .map(res => console.log(res));
+      .catch(err => Observable.throw(HandleError.createError(err)));
   }
 }

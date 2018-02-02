@@ -4,6 +4,7 @@ import {Booking} from '../models/booking';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import {HandleError} from "./handle-error";
 
 @Injectable()
 export class BookingService {
@@ -16,6 +17,7 @@ export class BookingService {
   getAllBooking(): Observable<Booking[]> {
     return this.http
       .get(this.getBookingUrl)
-      .map(res => res as Booking[] || []);
+      .map(res => res as Booking[] || [])
+      .catch(err => Observable.throw(HandleError.createError(err)));
   }
 }

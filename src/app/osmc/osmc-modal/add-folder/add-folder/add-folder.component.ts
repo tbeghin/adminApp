@@ -15,7 +15,7 @@ export class AddFolderComponent implements OnInit {
 
   constructor(private osmcService: OsmcService,
               public dialogRef: MatDialogRef<AddFolderComponent>,
-              @Inject(MAT_DIALOG_DATA) public osmcFile: OsmcFile) { }
+              @Inject(MAT_DIALOG_DATA) public path: string) { }
 
   ngOnInit() {
     this.folderName = new FormControl();
@@ -23,10 +23,12 @@ export class AddFolderComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.folderName);
-    if (this.folderName.valid) {
+    if (this.addFolderForm.valid) {
       const newFolder: string = this.folderName.value;
       this.dialogRef.close(newFolder);
-      this.osmcService.addFolder(newFolder);
+      this.osmcService.addFolder(this.path, newFolder).subscribe(
+        newPath => this.dialogRef.close(newPath)
+      );
     }
   }
 

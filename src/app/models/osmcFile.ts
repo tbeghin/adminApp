@@ -7,3 +7,8 @@ export class OsmcFile {
     this.isFolder = isFolder;
   }
 }
+
+export const RootFile: OsmcFile = {
+  name: '..',
+  isFolder: true
+};

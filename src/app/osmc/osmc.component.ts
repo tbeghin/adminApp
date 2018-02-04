@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {OsmcService} from '../services/osmc.service';
-import {OsmcFile} from '../models/osmcFile';
+import {OsmcFile, RootFile} from '../models/osmcFile';
 import {MatDialog, MatDialogConfig} from '@angular/material';
 import {AddFolderComponent} from './osmc-modal/add-folder/add-folder/add-folder.component';
 
@@ -10,7 +10,7 @@ import {AddFolderComponent} from './osmc-modal/add-folder/add-folder/add-folder.
   styleUrls: ['./osmc.component.css']
 })
 export class OsmcComponent implements OnInit {
-  rootFile: OsmcFile;
+  rootFile: OsmcFile = RootFile;
   files: Array<OsmcFile>;
   path: string;
 
@@ -18,9 +18,6 @@ export class OsmcComponent implements OnInit {
               public dialog: MatDialog) {
     this.path = '';
     this.files = Array<OsmcFile>();
-    this.rootFile = new OsmcFile();
-    this.rootFile.name = '..';
-    this.rootFile.isFolder = true;
   }
 
   ngOnInit() {

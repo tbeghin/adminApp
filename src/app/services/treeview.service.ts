@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Treeview} from '../models/treeview';
 import {Observable} from 'rxjs/Observable';
-import {HandleError} from "./handle-error";
+import {HandleError} from './handle-error';
 
 @Injectable()
 export class TreeviewService {

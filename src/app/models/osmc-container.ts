@@ -1,4 +1,4 @@
-import {OsmcFile} from "./osmcFile";
+import {OsmcFile} from './osmcFile';
 
 export class OsmcContainer {
   path: string;

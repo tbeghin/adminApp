@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable} from "rxjs/Observable";
-import {OsmcContainer} from "../models/osmc-container";
-import {AddFolderRequest} from "./models/add-folder-request";
+import {Observable} from 'rxjs/Observable';
+import {OsmcContainer} from '../models/osmc-container';
+import {AddFolderRequest} from './models/add-folder-request';
 import {HandleError} from './handle-error';
 
 @Injectable()

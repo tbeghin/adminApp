@@ -5,7 +5,7 @@ import {User} from '../models/user';
 import {Observable} from 'rxjs/Observable';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {TransverseData} from '../models/constants/transverse-data';
-import {HandleError} from "./handle-error";
+import {HandleError} from './handle-error';
 
 @Injectable()
 export class UserService {
